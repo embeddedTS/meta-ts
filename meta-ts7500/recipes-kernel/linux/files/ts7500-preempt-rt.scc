@@ -1,0 +1,8 @@
+define KMACHINE ts7500
+define KTYPE preempt-rt
+define KARCH arm
+
+include bsp/arm-versatile-926ejs/arm-versatile-926ejs-preempt-rt
+branch ts7500
+
+include ts7500.scc
