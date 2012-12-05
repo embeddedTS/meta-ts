@@ -1,8 +1,0 @@
-define KMACHINE ts7500
-define KTYPE standard
-define KARCH arm
-
-include bsp/arm-versatile-926ejs/arm-versatile-926ejs-standard
-branch ts7500
-
-include ts7500.scc

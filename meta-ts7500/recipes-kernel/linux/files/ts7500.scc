@@ -1,4 +1,0 @@
-kconf hardware ts7500.cfg
-
-kconf hardware user-config.cfg
-include user-patches.scc
