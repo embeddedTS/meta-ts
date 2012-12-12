@@ -6,6 +6,7 @@ IMAGE_INSTALL ?= "\
 	packagegroup-core-basic \
 	packagegroup-core-boot \
 	vim \
+	nano \
 	perl \
 	python \
 	tcl \
@@ -13,14 +14,8 @@ IMAGE_INSTALL ?= "\
 	apache2 \
 	mysql5 \
 	vsftpd \
-	openjdk-7-jre \
-	mono \
-	gpsd \
-	gpsd-conf \
-	gps-utils \
-	libgps \
-	libgpsd \
 	"
+
 
 LICENSE = "MIT"
 
