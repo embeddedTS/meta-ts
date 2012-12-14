@@ -19,17 +19,17 @@ KERNEL_IMAGETYPE = "zImage"
 #DEFAULT_PREFERENCE = "-1"
 
 COMPATIBLE_MACHINE = "ts7500"
-
+PR = "r1"
 PV = "3.4"
 
-S = "${WORKDIR}/linux-${PV}"
+S = "${WORKDIR}/linux-${PV}-ts43xx"
 
 SRCREV = "${AUTOREV}"
-SRC_URI = "ftp://ftp.embeddedarm.com/ts-arm-sbc/ts-7500-linux/sources/linux-3.4.0-jul232012.tar.gz \
+SRC_URI = "ftp://oz.embeddedarm.com/ts-socket-macrocontrollers/ts-4300-linux/sources/linux-3.4-ts43xx-latest.tar.gz \
 	   file://defconfig \
            "
-SRC_URI[md5sum] = "cbdc9560aa25b1ac1a409056924e4b52"
-SRC_URI[sha256sum] = "d82a0780d05af98116ee191b97ffa3fed3e102af03e60d6ef73624062a23accb"
+SRC_URI[md5sum] = "20a9d43842ee2f7564cd4af2a09543ad"
+SRC_URI[sha256sum] = "9d565c2172c39e23b6b45f7b73bcfc8cd0e9a09ffb4e5f24b1e3d34335534c1c"
 
 kernel_do_configure_prepend() {
                 cp "${WORKDIR}/defconfig" "${B}/.config"

@@ -1,19 +1,10 @@
 DESCRIPTION = "Mininmal TS headless image to fit on the XNAND"
 
-IMAGE_FEATURES += "splash packge-management ssh-server-openssh"
+IMAGE_FEATURES += " package-management ssh-server-openssh tools-debug dev-pkgs "
 
 IMAGE_INSTALL ?= "\
-	packagegroup-core-basic \
+	packagegroup-ts-basic \
 	packagegroup-core-boot \
-	vim \
-	nano \
-	perl \
-	python \
-	tcl \
-	php \
-	apache2 \
-	mysql5 \
-	vsftpd \
 	"
 
 
