@@ -86,6 +86,8 @@ RDEPENDS_packagegroup-ts-basic-extended = "\
     vim-tiny \
     nano \
     wget \
+    db \
+    sqlite3 \
     "
 
 RDEPENDS_packagegroup-ts-dev-utils = "\
@@ -142,11 +144,13 @@ RDEPENDS_packagegroup-ts-sys-services = "\
     apache2 \
     mysql5 \
     vsftpd \
+    ntp \
+    ntp-utils \   
     "
 
 RDEPENDS_packagegroup-ts-script-lang = "\
     tcl \
-    php \
+    modphp \
     perl \
     python \
     "
