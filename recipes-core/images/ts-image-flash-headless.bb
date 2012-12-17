@@ -1,6 +1,6 @@
 DESCRIPTION = "Mininmal TS headless image to fit on the XNAND"
 
-IMAGE_FEATURES += " package-management ssh-server-openssh tools-debug dev-pkgs "
+IMAGE_FEATURES += " package-management ssh-server-openssh tools-debug"
 
 IMAGE_INSTALL ?= "\
 	packagegroup-ts-basic \

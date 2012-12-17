@@ -19,13 +19,13 @@ KERNEL_IMAGETYPE = "zImage"
 #DEFAULT_PREFERENCE = "-1"
 
 COMPATIBLE_MACHINE = "ts7500"
-PR = "r1"
+PR = "r2"
 PV = "3.4"
 
-S = "${WORKDIR}/linux-${PV}-ts43xx"
+S = "${WORKDIR}/linux-${PV}-ts75xx"
 
 SRCREV = "${AUTOREV}"
-SRC_URI = "ftp://oz.embeddedarm.com/ts-socket-macrocontrollers/ts-4300-linux/sources/linux-3.4-ts43xx-latest.tar.gz \
+SRC_URI = "file:///u/home/mark/linux-3.4-ts75xx.tar.gz \
 	   file://defconfig \
            "
 SRC_URI[md5sum] = "20a9d43842ee2f7564cd4af2a09543ad"
