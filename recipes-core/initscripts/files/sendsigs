@@ -1,0 +1,68 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          sendsigs
+# Required-Start:    
+# Required-Stop:     umountnfs
+# Default-Start:
+# Default-Stop:      0 6
+# Short-Description: Kill all remaining processes.
+# Description: 
+### END INIT INFO
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+pids=
+
+while read line; do                                                                                                                        
+        case $line in                                                                                                                      
+        *nbd*)                                                                                                                             
+                dev=`echo $line | (read dev junk; echo $dev)`                                                                              
+                devs="$dev|$devs"                                                                                                          
+                ;;                                                                                                                         
+        esac                                                                                                                               
+done < /proc/mounts                                                                                                                        
+                                                                                                                                           
+for I in /proc/[1-9]*; do                                                                                                                  
+        read line junk < $I/cmdline                                                                                                        
+        case $line in                                                                                                                      
+        *nbd-client*)                                                                                                                      
+                nbds="$nbds $I/cmdline"                                                                                                    
+                ;;                                                                                                                         
+        *nandctl*)                                                                                                                         
+                pids="$pids -o ${I##*/}"                                                                                                      
+                ;;                                                                                                                         
+        *sdctl*)                                                                                                                           
+                pids="$pids -o ${I##*/}"                                                                                                      
+                ;;                                                                                                                         
+        *ts[1-9]*ctl*)                                                                                                                     
+                pids="$pids -o ${I##*/}"                                                                                                      
+                ;;                                                                                                                         
+        *xuartctl*)                                                                                                                        
+                pids="$pids -o ${I##*/}"                                                                                                      
+                ;;                                                                                                                         
+        esac                                                                                                                               
+done               
+
+# Only nbd-clients of currently mounted filesystems are protected
+nbds=`grep -l -E "(${devs%|})" $nbds`                            
+                                                                 
+for I in $nbds; do                                               
+        I=${I%/cmdline}                                          
+        pids="$pids -o ${I##*/}"                                    
+done  
+
+# Flush the kernel I/O buffer before we start to kill
+# processes, to make sure the IO of already stopped services to
+# not slow down the remaining processes to a point where they
+# are accidentily killed with SIGKILL because they did not
+# manage to shut down in time.
+sync
+	
+echo "PIDS: $pids"
+	
+# Kill all processes.
+killall5 -15 $pids # SIGTERM
+sleep 5
+echo "Sending all processes the KILL signal..."
+killall5 -9 $pids
+
