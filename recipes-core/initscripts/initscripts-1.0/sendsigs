@@ -58,8 +58,6 @@ done
 # manage to shut down in time.
 sync
 	
-echo "PIDS: $pids"
-	
 # Kill all processes.
 killall5 -15 $pids # SIGTERM
 sleep 5

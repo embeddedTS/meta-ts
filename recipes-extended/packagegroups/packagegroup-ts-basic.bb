@@ -3,7 +3,7 @@
 #
 
 DESCRIPTION = "Create Basic Image Tasks"
-PR = "r0"
+PR = "r1"
 LICENSE = "MIT"
 
 inherit packagegroup
@@ -135,7 +135,6 @@ RDEPENDS_packagegroup-ts-sys-services = "\
     libcap \
     libevent \
     logrotate \
-    nfs-utils \
     libpcre \
     rpcbind \
     sysfsutils \
