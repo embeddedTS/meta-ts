@@ -111,6 +111,7 @@ RDEPENDS_packagegroup-ts-initscripts = "\
     ethtool \
     mingetty \
     sysklogd \
+    ts-misc \
     "
 
 RDEPENDS_packagegroup-ts-multiuser = "\
