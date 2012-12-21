@@ -3,7 +3,7 @@
 #
 
 DESCRIPTION = "Create Basic Image Tasks"
-PR = "r1"
+PR = "r2"
 LICENSE = "MIT"
 
 inherit packagegroup
@@ -96,13 +96,35 @@ RDEPENDS_packagegroup-ts-dev-utils = "\
     m4 \
     make \
     patch \
-    gcc \
-    g++ \
-    libstdc++-dev \
     strace \
     ltrace \
     tcpdump \
     ldd \
+    autoconf \
+    automake \
+    binutils \
+    binutils-symlinks \
+    coreutils \
+    cpp \
+    cpp-symlinks \
+    ccache \
+    diffutils \
+    gcc \
+    gcc-symlinks \
+    g++ \
+    g++-symlinks \
+    gettext \
+    intltool \
+    libstdc++ \
+    libstdc++-dev \
+    libtool \
+    perl-module-re \
+    perl-module-text-wrap \
+    pkgconfig \
+    findutils \
+    quilt \
+    less \
+    file \
     "
 
 RDEPENDS_packagegroup-ts-initscripts = "\
