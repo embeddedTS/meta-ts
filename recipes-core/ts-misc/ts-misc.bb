@@ -1,10 +1,8 @@
-DESCRIPTION = "Technologic Systems misc modification"
+DESCRIPTION = "Technologic Systems misc modificationis"
 SECTION = "base"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
-PR = "r1"
-
-#SRC_URI = "file://helloworld.c"
+PR = "r2"
 
 S = "${WORKDIR}"
 FILES_${PN} = "/"
@@ -12,6 +10,7 @@ FILES_${PN} = "/"
 do_install() {
 	install -d ${D}${sbindir}
 	install -m 0755 -d ${D}/initrd
+	ln -s /initrd/slib ${D}/slib
 	ln -s /initrd/sbin/canctl ${D}${sbindir}/canctl
 	ln -s /initrd/sbin/daqctl ${D}${sbindir}/daqctl
 	ln -s /initrd/sbin/dioctl ${D}${sbindir}/dioctl

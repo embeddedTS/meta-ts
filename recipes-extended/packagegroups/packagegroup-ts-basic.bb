@@ -3,7 +3,7 @@
 #
 
 DESCRIPTION = "Create Basic Image Tasks"
-PR = "r2"
+PR = "r4"
 LICENSE = "MIT"
 
 inherit packagegroup
@@ -60,9 +60,7 @@ RDEPENDS_packagegroup-ts-basic-utils = "\
     gmp \
     grep \
     makedevs \
-    mc \
     mktemp \
-    ncurses \
     net-tools \
     pax \
     popt \
@@ -93,36 +91,27 @@ RDEPENDS_packagegroup-ts-basic-extended = "\
 RDEPENDS_packagegroup-ts-dev-utils = "\
     byacc \
     diffutils \
-    m4 \
     make \
     patch \
     strace \
     ltrace \
     tcpdump \
     ldd \
-    autoconf \
-    automake \
     binutils \
     binutils-symlinks \
     coreutils \
     cpp \
     cpp-symlinks \
-    ccache \
     diffutils \
     gcc \
     gcc-symlinks \
-    g++ \
-    g++-symlinks \
     gettext \
     intltool \
     libstdc++ \
-    libstdc++-dev \
     libtool \
     perl-module-re \
     perl-module-text-wrap \
-    pkgconfig \
     findutils \
-    quilt \
     less \
     file \
     "
@@ -149,9 +138,6 @@ RDEPENDS_packagegroup-ts-sys-services = "\
     at \
     bzip2 \
     cronie \
-    dbus \
-    dbus-glib \
-    python-dbus \
     elfutils \
     gzip \
     less \
@@ -171,7 +157,6 @@ RDEPENDS_packagegroup-ts-sys-services = "\
     "
 
 RDEPENDS_packagegroup-ts-script-lang = "\
-    tcl \
     modphp \
     perl \
     python \
