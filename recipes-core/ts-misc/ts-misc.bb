@@ -8,22 +8,22 @@ S = "${WORKDIR}"
 FILES_${PN} = "/"
 
 do_install() {
-	install -d ${D}${sbindir}
+	install -d ${D}${bindir}
 	install -d ${D}/dev
 	install -d ${D}/dev/pts
 	install -m 0755 -d ${D}/initrd
 
 	ln -s /initrd/slib ${D}/slib
-	ln -s /initrd/sbin/canctl ${D}${sbindir}/canctl
-	ln -s /initrd/sbin/daqctl ${D}${sbindir}/daqctl
-	ln -s /initrd/sbin/dioctl ${D}${sbindir}/dioctl
-	ln -s /initrd/sbin/dmxctl ${D}${sbindir}/dmxctl
-	ln -s /initrd/sbin/nandctl ${D}${sbindir}/nandctl
-	ln -s /initrd/sbin/sdctl ${D}${sbindir}/sdctl
-	ln -s /initrd/sbin/spictl ${D}${sbindir}/spictl
-	ln -s /initrd/sbin/spiflashctl ${D}${sbindir}/spiflashctl
-	ln -s /initrd/sbin/ts7500ctl ${D}${sbindir}/ts7500ctl
-	ln -s /initrd/sbin/xuartctl ${D}${sbindir}/xuartctl
+	ln -s /initrd/sbin/canctl ${D}${bindir}/canctl
+	ln -s /initrd/sbin/daqctl ${D}${bindir}/daqctl
+	ln -s /initrd/sbin/dioctl ${D}${bindir}/dioctl
+	ln -s /initrd/sbin/dmxctl ${D}${bindir}/dmxctl
+	ln -s /initrd/sbin/nandctl ${D}${bindir}/nandctl
+	ln -s /initrd/sbin/sdctl ${D}${bindir}/sdctl
+	ln -s /initrd/sbin/spictl ${D}${bindir}/spictl
+	ln -s /initrd/sbin/spiflashctl ${D}${bindir}/spiflashctl
+	ln -s /initrd/sbin/ts7500ctl ${D}${bindir}/ts7500ctl
+	ln -s /initrd/sbin/xuartctl ${D}${bindir}/xuartctl
 
 	test -c ${D}/dev/ptmx || mknod -m 666 ${D}/dev/ptmx c 5 2
 
