@@ -3,7 +3,7 @@
 #
 
 DESCRIPTION = "Create Basic Image Tasks"
-PR = "r4"
+PR = "r5"
 LICENSE = "MIT"
 
 inherit packagegroup
@@ -53,6 +53,9 @@ RDEPENDS_packagegroup-ts-basic-utils = "\
     coreutils \
     cpio \
     e2fsprogs \
+    e2fsprogs-e2fsck \
+    e2fsprogs-mke2fs \
+    e2fsprogs-tune2fs \    
     ed \
     file \
     findutils \
@@ -154,6 +157,7 @@ RDEPENDS_packagegroup-ts-sys-services = "\
     vsftpd \
     ntp \
     ntp-utils \   
+    avahi \    
     "
 
 RDEPENDS_packagegroup-ts-script-lang = "\

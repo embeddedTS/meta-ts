@@ -1,14 +1,14 @@
-DESCRIPTION = "Mininmal TS headless image to fit on the XNAND"
+DESCRIPTION = "Standard TS headless image for the sd cards"
 
-IMAGE_ROOTFS_SIZE = "245937"
-
-IMAGE_FEATURES += " package-management ssh-server-openssh tools-debug"
+IMAGE_FEATURES += " package-management ssh-server-openssh tools-debug tools-sdk debug-tweaks "
 
 IMAGE_INSTALL ?= "\
 	packagegroup-ts-basic \
 	packagegroup-core-boot \
+	mono \
+	gpsd \
+	openjdk-7-jre \
 	"
-
 
 LICENSE = "MIT"
 
