@@ -158,6 +158,7 @@ RDEPENDS_packagegroup-ts-sys-services = "\
     ntp \
     ntp-utils \   
     avahi \    
+    hostap-daemon \
     "
 
 RDEPENDS_packagegroup-ts-script-lang = "\

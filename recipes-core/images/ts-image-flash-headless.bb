@@ -7,6 +7,7 @@ IMAGE_FEATURES += " package-management ssh-server-openssh tools-debug"
 IMAGE_INSTALL ?= "\
 	packagegroup-ts-basic \
 	packagegroup-core-boot \
+	packagegroup-base-extended \
 	"
 
 
