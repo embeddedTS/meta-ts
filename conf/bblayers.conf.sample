@@ -7,16 +7,16 @@ BBFILES ?= ""
 
 
 BBLAYERS ?= " \
-	/mnt/ext/poky/meta \
-	/mnt/ext/poky/meta-yocto \
-	/mnt/ext/poky/meta-yocto-bsp \
-	/mnt/ext/poky/meta-java \
-	/mnt/ext/poky/meta-mono \
-	/mnt/ext/poky/meta-ts/meta-ts7500 \
-	/mnt/ext/poky/meta-ts \
-	/mnt/ext/poky/meta-openembedded/meta-oe \
-	/mnt/ext/poky/meta-openembedded/meta-webserver \
-	/mnt/ext/poky/meta-openembedded/meta-networking \
+	##COREBASE##/meta \
+	##COREBASE##/meta-yocto \
+	##COREBASE##/meta-yocto-bsp \
+	##COREBASE##/meta-java \
+	##COREBASE##/meta-mono \
+	##COREBASE##/meta-ts/meta-ts7500 \
+	##COREBASE##/meta-ts \
+	##COREBASE##/meta-openembedded/meta-oe \
+	##COREBASE##/meta-openembedded/meta-webserver \
+	##COREBASE##/meta-openembedded/meta-networking \
 	"
 
 BBFILE_PRIORITY_openembedded-layer = "1"
