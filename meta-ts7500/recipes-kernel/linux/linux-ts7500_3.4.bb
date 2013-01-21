@@ -19,17 +19,15 @@ KERNEL_IMAGETYPE = "zImage"
 #DEFAULT_PREFERENCE = "-1"
 
 COMPATIBLE_MACHINE = "ts7500"
-PR = "r2"
+PR = "r3"
 PV = "3.4"
 
-S = "${WORKDIR}/linux-${PV}-ts75xx"
+S = "${WORKDIR}/git"
 
 SRCREV = "${AUTOREV}"
-SRC_URI = "file:///u/home/mark/linux-3.4-ts75xx.tar.gz \
+SRC_URI = "git://github.com/embeddedarm/linux-3.4-ts75xx.git;protocol=git;tag=828afabd21f83d548ac588e11b66e82d671e04fe \
 	   file://defconfig \
            "
-SRC_URI[md5sum] = "20a9d43842ee2f7564cd4af2a09543ad"
-SRC_URI[sha256sum] = "9d565c2172c39e23b6b45f7b73bcfc8cd0e9a09ffb4e5f24b1e3d34335534c1c"
 
 kernel_do_configure_prepend() {
                 cp "${WORKDIR}/defconfig" "${B}/.config"
