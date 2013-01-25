@@ -10,12 +10,13 @@ IMAGE_INSTALL ?= "\
 	packagegroup-ts-basic \
 	packagegroup-core-boot \
 	packagegroup-base-extended \
+	ts-image-support \
 	"
 
 
 LICENSE = "MIT"
 
-inherit core-image
+inherit core-image image_dd
 
 # remove not needed ipkg informations
 #ROOTFS_POSTPROCESS_COMMAND += "remove_packaging_data_files ; "
