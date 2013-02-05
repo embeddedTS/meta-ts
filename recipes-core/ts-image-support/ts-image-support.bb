@@ -7,6 +7,8 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 S = "${WORKDIR}"
 #FILES_${PN} = "/boot"
 
+SRC_URI += " file://vfatdummy.dd.bz2 "
+
 do_install() {
 	install -d ${D}${datadir}
 	install -d ${D}${datadir}/ts-image-support
