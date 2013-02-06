@@ -2,7 +2,7 @@ DESCRIPTION = "Technologic Systems misc modificationis"
 SECTION = "base"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
-PR = "r6"
+PR = "r7"
 
 S = "${WORKDIR}"
 FILES_${PN} = "/"
@@ -33,6 +33,7 @@ pkg_postinst_${PN} () {
      #!/bin/sh -e
      if [ x"$D" = "x" ]; then
 	ldconfig /slib
+	update-rc.d -f hostapd remove
      else
           exit 1
      fi

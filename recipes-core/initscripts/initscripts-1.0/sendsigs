@@ -44,7 +44,7 @@ for I in /proc/[1-9]*; do
 done               
 
 # Only nbd-clients of currently mounted filesystems are protected
-nbds=`grep -l -E "(${devs%|})" $nbds`                            
+#nbds=`grep -l -E "(${devs%|})" $nbds`                            
                                                                  
 for I in $nbds; do                                               
         I=${I%/cmdline}                                          
