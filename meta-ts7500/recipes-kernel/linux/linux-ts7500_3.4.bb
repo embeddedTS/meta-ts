@@ -19,13 +19,13 @@ KERNEL_IMAGETYPE = "zImage"
 #DEFAULT_PREFERENCE = "-1"
 
 COMPATIBLE_MACHINE = "ts7500"
-PR = "r3"
+PR = "r4"
 PV = "3.4"
 
 S = "${WORKDIR}/git"
 
 SRCREV = "${AUTOREV}"
-SRC_URI = "git://github.com/embeddedarm/linux-3.4-ts75xx.git;protocol=git;tag=828afabd21f83d548ac588e11b66e82d671e04fe \
+SRC_URI = "git://github.com/embeddedarm/linux-3.4-ts75xx.git;protocol=git;tag=6e4f4065217d14ff6c4dfb6c1b6d1371638fe63b \
 	   file://defconfig \
            "
 
