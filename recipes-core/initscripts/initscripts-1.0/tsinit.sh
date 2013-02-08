@@ -10,4 +10,5 @@
 ### END INIT INFO
 
 cp -P /initrd/dev/tsconsole /dev/tsconsole
-
+rdev="$(mountpoint -d /)"
+mknod -m 600 /dev/rootdev b ${rdev%:*} ${rdev#*:}
