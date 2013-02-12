@@ -25,9 +25,9 @@ PV = "2.6.34"
 S = "${WORKDIR}/git"
 
 SRCREV = "${AUTOREV}"
-SRC_URI = "git://github.com/embeddedarm/linux-2.6.34-ts471x.git;protocol=git;tag=2551b13dd02c3d2ae3e23411700e15603f15f9a6 \
+SRC_URI = "git://github.com/embeddedarm/linux-2.6.34-ts471x.git;protocol=git;tag=c3de2e89f23d328e99253b2320efd8944e524b08 \
 	   file://defconfig \
-	   file://initrd \
+	   file://initramfs.tar.bz2 \
            "
 
 kernel_do_configure_prepend() {
