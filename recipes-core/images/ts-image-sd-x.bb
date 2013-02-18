@@ -1,6 +1,6 @@
 DESCRIPTION = "Standard TS headless image for the sd cards"
 
-IMAGE_FEATURES += "splash package-management ssh-server-openssh tools-debug tools-sdk debug-tweaks x11-base x11-sato "
+IMAGE_FEATURES += "splash package-management ssh-server-openssh tools-debug tools-sdk debug-tweaks x11-base "
 
 IMAGE_INSTALL ?= "\
 	packagegroup-ts-basic \
@@ -8,6 +8,8 @@ IMAGE_INSTALL ?= "\
 	mono \
 	gpsd \
 	openjdk-7-jre \
+	packagegroup-core-gtk-directfb \
+	xinput \
 	"
 
 LICENSE = "MIT"
