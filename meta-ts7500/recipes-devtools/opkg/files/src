@@ -1,0 +1,3 @@
+src/gz all ftp://ftp.embeddedarm.com/oe/repo/danny/all
+src/gz armv4 ftp://ftp.embeddedarm.com/oe/repo/danny/armv4
+src/gz ts7500 ftp://ftp.embeddedarm.com/oe/repo/danny/ts7500
