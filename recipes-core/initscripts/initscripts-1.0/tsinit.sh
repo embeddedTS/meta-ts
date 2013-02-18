@@ -9,7 +9,9 @@
 # Description: 
 ### END INIT INFO
 
-test -e /dev/tsconsole || cp -P /initrd/dev/tsconsole /dev/tsconsole
+test -e /initrd/dev/tsconsole && cp -P /initrd/dev/tsconsole /dev/tsconsole
+# ts4800 console fix
+test -e /dev/ttymxc0 && ln -s /dev/ttymxc0 /dev/tsconsole
 
 rdev="$(mountpoint -d /)"
 mknod -m 600 /dev/rootdev b ${rdev%:*} ${rdev#*:}
