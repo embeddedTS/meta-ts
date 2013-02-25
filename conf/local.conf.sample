@@ -240,8 +240,8 @@ BBFILE_PRIORITY_networking = "1"
 # java stuff
 PREFERRED_PROVIDER_virtual/java-native = "jamvm-native"
 PREFERRED_PROVIDER_virtual/javac-native = "ecj-bootstrap-native"
-PREFERRED_VERSION_openjdk-7-jre = "03b21-2.1.3"
-PREFERRED_VERSION_icedtea7-native = "2.1.3"
+PREFERRED_VERSION_openjdk-7-jre = "03b21-2.1.4"
+PREFERRED_VERSION_icedtea7-native = "2.1.4"
 
 # Image features
 DISTRO_FEATURES_append = " ppp nfs wifi 3g"
