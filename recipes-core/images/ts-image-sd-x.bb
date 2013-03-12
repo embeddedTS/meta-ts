@@ -1,6 +1,6 @@
 DESCRIPTION = "Standard TS headless image for the sd cards"
 
-IMAGE_FEATURES += "splash package-management ssh-server-openssh tools-debug tools-sdk debug-tweaks x11-base "
+IMAGE_FEATURES += "splash package-management ssh-server-openssh tools-debug tools-sdk debug-tweaks x11-base dev-pkgs "
 
 IMAGE_INSTALL ?= "\
 	packagegroup-ts-basic \
@@ -10,7 +10,11 @@ IMAGE_INSTALL ?= "\
 	openjdk-7-jre \
 	packagegroup-core-gtk-directfb \
 	xinput \
-	"
+    mini-x-session \
+    fullscreen-webkit \
+    webkit-gtk \
+    matchbox-wm \
+"
 
 LICENSE = "MIT"
 
