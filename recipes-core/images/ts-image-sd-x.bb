@@ -3,6 +3,7 @@ DESCRIPTION = "Standard TS headless image for the sd cards"
 IMAGE_FEATURES += "splash package-management ssh-server-openssh tools-debug tools-sdk debug-tweaks x11-base dev-pkgs "
 
 IMAGE_INSTALL ?= "\
+    packagegroup-base \
 	packagegroup-ts-basic \
 	packagegroup-core-boot \
 	mono \
@@ -18,7 +19,7 @@ IMAGE_INSTALL ?= "\
 
 LICENSE = "MIT"
 
-inherit core-image image_dd
+inherit core-image image_dd 
 
 DD_MBR_IMAGE ?= "mbr-sd.dd"          
 DD_INITRD_IMAGE ?= "initrd-sd.dd"            
