@@ -17,7 +17,7 @@ EXCLUDE_FROM_WORLD = "1"
 DD_VFAT_DUMMY ?= "0"
 
 build_image_dd() {
-	IMAGE=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.dd
+	IMAGE=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.dd
 
 	rm -rf $IMAGE
 	
