@@ -3,6 +3,7 @@ DESCRIPTION = "Standard TS headless image for the sd cards"
 IMAGE_FEATURES += " package-management ssh-server-openssh tools-debug tools-sdk debug-tweaks "
 
 IMAGE_INSTALL ?= "\
+    packagegroup-base \
 	packagegroup-ts-basic \
 	packagegroup-core-boot \
 	mono \

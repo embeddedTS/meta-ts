@@ -15,6 +15,7 @@ IMAGE_OVERHEAD_FACTOR = "1.0"
 IMAGE_FEATURES += " package-management ssh-server-openssh tools-debug"
 
 IMAGE_INSTALL ?= "\
+    packagegroup-base \
 	packagegroup-ts-basic \
 	packagegroup-core-boot \
 	packagegroup-base-extended \
