@@ -1,4 +1,5 @@
 # fixes for the brken initrd, no /dev/tsconsole
+PRINC := "${@int(PRINC) + 1}"
 do_install_append() {
 
 	test -c ${D}/dev/ttymxc0 || mknod -m 666 ${D}/dev/ttymxc0 c 207 16
