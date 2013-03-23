@@ -1,6 +1,7 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
 
 SRC_URI_append = " file://tsinit.sh "
+PRINC := "${@int(PRINC) + 1}"
 
 do_install_append () {
 
