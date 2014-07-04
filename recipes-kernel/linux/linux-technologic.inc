@@ -21,4 +21,3 @@ TECHNOLOGIC_GITHUB_MIRROR ?= "git://github.com/embeddedarm/linux-3.10.17-imx6.gi
 SRC_URI = "${TECHNOLOGIC_GITHUB_MIRROR};branch=${SRCBRANCH} \
            file://defconfig \
 "
-
