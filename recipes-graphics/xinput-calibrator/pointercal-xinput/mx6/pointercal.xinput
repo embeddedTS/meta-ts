@@ -1,0 +1,1 @@
+xinput set-int-prop "ADS7843 Touchscreen" "Evdev Axis Calibration" 32 4017 157 3885 240; xinput set-int-prop "ADS7843 Touchscreen" "Evdev Axes Swap" 8 0;
