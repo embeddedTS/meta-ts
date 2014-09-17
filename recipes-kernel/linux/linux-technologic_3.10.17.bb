@@ -8,7 +8,7 @@ DEPENDS += "lzop-native bc-native"
 
 # TS branch - based on 3.10.17_1.0.0_ga from Freescale git
 SRCBRANCH = "master"
-SRCREV = "master"
+SRCREV = "31d94085079cdfe327466e6dd227347d23b1a752"
 LOCALVERSION = "-1.0.0-technologic"
 
 COMPATIBLE_MACHINE = "(ts4900)"
