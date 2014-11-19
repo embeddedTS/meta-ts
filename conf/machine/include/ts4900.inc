@@ -12,7 +12,7 @@ MACHINE_FEATURES += "pci touchscreen"
 
 KERNEL_IMAGETYPE = "uImage"
 
-KERNEL_DEVICETREE = "imx6dl-ts4900.dtb imx6q-ts4900.dtb imx6q-ts4900-2.dtb imx6dl-ts4900-2.dtb"
+KERNEL_DEVICETREE = "imx6dl-ts4900.dtb imx6q-ts4900.dtb imx6q-ts4900-2.dtb imx6dl-ts4900-2.dtb imx6q-ts4900-9.dtb imx6dl-ts4900-9.dtb imx6q-ts4900-a.dtb imx6dl-ts4900-a.dtb imx6q-ts7970.dtb imx6dl-ts7970.dtb"
 
 IMAGE_BOOTLOADER = ""
 IMAGE_INSTALL += " ts4900-fpga kernel-devicetree"
