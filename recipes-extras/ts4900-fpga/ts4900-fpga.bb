@@ -9,7 +9,7 @@ DEPENDS = ""
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/"
 
-SRC_URI = "file://ts4900-fpga.bin"
+SRC_URI = "file://ts4900-fpga.bin file://ts7970-fpga.bin"
 
 S = "${WORKDIR}"
 
@@ -18,4 +18,5 @@ FILES_${PN} =  "/boot/*"
 do_install() {
     install -d ${D}/boot/
     install -m 0755 ts4900-fpga.bin ${D}/boot/
+    install -m 0755 ts7970-fpga.bin ${D}/boot/
 }
