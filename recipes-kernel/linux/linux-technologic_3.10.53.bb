@@ -6,9 +6,8 @@ require recipes-kernel/linux/linux-dtb.inc
 
 DEPENDS += "lzop-native bc-native"
 
-# TS branch - based on 3.10.17_1.0.0_ga from Freescale git
-SRCBRANCH = "master"
-SRCREV = "2b1cdafadf0747e8264a36face48bfa387e1e76e"
+SRCBRANCH = "imx_3.10.53_1.1.0_ga"
+SRCREV = "6e2248524534aee501a62344d5601d104e2dda68"
 LOCALVERSION = "-1.0.0-technologic"
 
 COMPATIBLE_MACHINE = "(ts4900)"
