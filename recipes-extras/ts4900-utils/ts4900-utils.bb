@@ -8,7 +8,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 DEPENDS = ""
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/"
+FILESEXTRAPATHS_prepend := "${THISDIR}/:"
 
 SRC_URI = "git://github.com/embeddedarm/ts4900-utils.git;branch=master"
 
