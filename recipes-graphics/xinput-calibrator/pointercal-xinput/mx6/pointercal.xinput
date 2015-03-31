@@ -1,1 +1,6 @@
-xinput set-int-prop "ADS7843 Touchscreen" "Evdev Axis Calibration" 32 4017 157 3885 240; xinput set-int-prop "ADS7843 Touchscreen" "Evdev Axes Swap" 8 0;
+MODEL=$(cat /proc/device-tree/model)
+if echo $MODEL | egrep -q "TS-TPC-8950"; then
+	xinput set-prop "ADS7843 Touchscreen" "242" 4040 107 3929 144
+elif echo $MODEL | egrep -q "TS-TPC-8390"; then
+  	xinput set-prop "ADS7843 Touchscreen" "242" 3998 172 3903 285
+fi
