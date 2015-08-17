@@ -7,7 +7,7 @@ require recipes-kernel/linux/linux-dtb.inc
 DEPENDS += "lzop-native bc-native"
 
 SRCBRANCH = "imx_3.10.53_1.1.0_ga"
-SRCREV = "c0bb56536e3eee4e42d8981ce1b2224f60eb407e"
+SRCREV = "1993c24a3f4db8d408775a4a772f8479d2e19a0a"
 LOCALVERSION = "-1.0.0-technologic"
 
 COMPATIBLE_MACHINE = "(ts4900)"
