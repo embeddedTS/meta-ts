@@ -1,8 +1,8 @@
 SUMMARY = "TS Headless Image"
 
-IMAGE_FEATURES += "package-management dev-pkgs"
+IMAGE_FEATURES += "package-management dev-pkgs ssh-server-openssh tools-debug tools-profile eclipse-debug"
 
-IMAGE_INSTALL += "packagegroup-machine-base packagegroup-core-boot psplash linux-firmware autoconf automake binutils cpp cpp-symlinks gcc gcc-symlinks g++ g++-symlinks gettext make libstdc++ libstdc++-dev file coreutils i2c-tools nano bash-completion devmem2 imagemagick vim usb-modeswitch picocom iperf iw rfkill iotop libmodbus hostap-daemon libsocketcan canutils alsa-utils alsa-state wvdial ppp boost libusb1 openssh wpa-supplicant iproute2 wireless-tools avahi nfs-utils ruby python-modules python-core python-ctypes python-dev python-mmap python-shell python-threading lsof usbutils util-linux-mkfs e2fsprogs tcpdump ts4900-utils"
+IMAGE_INSTALL += "packagegroup-machine-base packagegroup-core-boot packagegroup-core-full-cmdline packagegroup-core-eclipse-debug packagegroup-core-tools-debug linux-firmware bash-completion imagemagick picocom iperf iotop libmodbus hostapd libsocketcan canutils wvdial ppp boost libusb1 python-modules python-core python-ctypes python-dev python-mmap python-shell python-threading util-linux-mkfs e2fsprogs tcpdump sqlite3 usbutils iw wpa-supplicant nfs-utils alsa-utils-alsamixer wireless-tools i2c-tools nano hexedit espeak devmem2 usb-modeswitch lsof curl ldd"
 
 EXTRA_IMAGE_FEATURES = "debug-tweaks"
 EXTRA_IMAGEDEPENDS += "qemu-native qemu-helper-native"
