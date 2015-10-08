@@ -16,7 +16,7 @@ SRC_URI = "git://github.com/embeddedarm/linux-3.10.17-imx6.git;branch=${SRCBRANC
            file://defconfig"
 
 DEPENDS += "lzop-native bc-native"
-SRCREV = "03bc029a620b76bf127c0427635fb8b980041811"
+SRCREV = "3f02c843c85566148fa98d39870d2c14b44c661b"
 LOCALVERSION = "-1.1.0-technologic"
 
 COMPATIBLE_MACHINE = "(mx6)"
