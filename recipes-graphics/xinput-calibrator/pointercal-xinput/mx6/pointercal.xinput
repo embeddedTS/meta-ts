@@ -1,6 +1,8 @@
 MODEL=$(cat /proc/device-tree/model)
-if echo $MODEL | egrep -q "TS-TPC-8950"; then
-	xinput set-prop "ADS7846 Touchscreen" "243" 8111 4206 8042 4320
-elif echo $MODEL | egrep -q "TS-TPC-8390"; then
-  	xinput set-prop "ADS7843 Touchscreen" "243" 3998 172 3903 285
+if echo $MODEL | egrep -q "\-8950"; then
+	xinput set-prop "ADS7846 Touchscreen" "Evdev Axis Calibration" 8111 4206 8042 4320
+elif echo $MODEL | egrep -q "\-8390"; then
+  	xinput set-prop "ADS7843 Touchscreen" "Evdev Axis Calibration" 3998 172 3903 285
+elif echo $MODEL | egrep -q "\-7990"; then
+	xinput set-prop "ADS7846 Touchscreen" "Evdev Axis Calibration" 3998 172 3903 285
 fi
