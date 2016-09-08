@@ -10,7 +10,7 @@ SRCBRANCH = "imx_4.1.15_1.0.0_ga"
 SRC_URI = "git://github.com/embeddedarm/linux-3.10.17-imx6.git;branch=${SRCBRANCH} \
            file://defconfig"
 DEPENDS += "lzop-native bc-native"
-SRCREV = "cbdf8c1a46230ea995dd559bcdbbfa8d10f3ddf3"
-LOCALVERSION = "-1.1.0-technologic"
+SRCREV = "c6a21141891f584945347947db076a997574f290"
+LOCALVERSION = "-1.0.0-technologic"
 
 COMPATIBLE_MACHINE = "(tsimx6)"
