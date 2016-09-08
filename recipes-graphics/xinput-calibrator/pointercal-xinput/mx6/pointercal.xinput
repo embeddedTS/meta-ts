@@ -6,3 +6,4 @@ elif echo $MODEL | egrep -q "\-8390"; then
 elif echo $MODEL | egrep -q "\-7990"; then
 	xinput set-prop "ADS7846 Touchscreen" "Evdev Axis Calibration" 3998 172 3903 285
 fi
+true
