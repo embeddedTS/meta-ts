@@ -2,7 +2,55 @@ SUMMARY = "TS Headless Image"
 
 IMAGE_FEATURES += "package-management dev-pkgs ssh-server-openssh tools-debug tools-profile eclipse-debug"
 
-IMAGE_INSTALL += "packagegroup-machine-base packagegroup-core-boot packagegroup-core-full-cmdline packagegroup-core-eclipse-debug packagegroup-core-tools-debug linux-firmware bash-completion imagemagick picocom iperf iotop libmodbus hostapd libsocketcan canutils wvdial ppp boost libusb1 python-modules python-core python-ctypes python-dev python-mmap python-shell python-threading util-linux-mkfs e2fsprogs tcpdump sqlite3 usbutils iw wpa-supplicant nfs-utils alsa-utils-alsamixer wireless-tools i2c-tools nano hexedit espeak devmem2 usb-modeswitch lsof curl ldd rsync lighttpd-module-cgi"
+IMAGE_INSTALL += "packagegroup-core-boot \
+	packagegroup-core-eclipse-debug \
+	packagegroup-core-full-cmdline \
+	packagegroup-core-tools-debug \
+	packagegroup-machine-base \
+	alsa-utils-alsamixer \
+	bash-completion \
+	boost \
+	canutils \
+	curl \
+	devmem2 \
+	e2fsprogs \
+	espeak \
+	hexedit \
+	hostapd \
+	i2c-tools \
+	imagemagick \
+	iotop \
+	iperf \
+	iw \
+	ldd \
+	libmodbus \
+	libsocketcan \
+	libusb1 \
+	lighttpd-module-cgi \
+	linux-firmware \
+	lsof \
+	modemmanager \
+	nano \
+	nfs-utils \
+	picocom \
+	ppp \
+	python-core \
+	python-ctypes \
+	python-dev \
+	python-mmap \
+	python-modules \
+	python-shell \
+	python-threading \
+	rsync \
+	sqlite3 \
+	tcpdump \
+	usb-modeswitch \
+	usbutils \
+	util-linux-mkfs \
+	wireless-tools \
+	wpa-supplicant \
+	wvdial \
+"
 
 EXTRA_IMAGE_FEATURES = "debug-tweaks"
 EXTRA_IMAGEDEPENDS += "qemu-native qemu-helper-native"

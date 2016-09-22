@@ -2,7 +2,80 @@ SUMMARY = "TS X11 Image"
 
 IMAGE_FEATURES += "package-management x11-base ssh-server-openssh tools-debug tools-profile eclipse-debug"
 
-IMAGE_INSTALL += "packagegroup-machine-base packagegroup-core-boot packagegroup-core-full-cmdline packagegroup-core-x11 packagegroup-core-eclipse-debug packagegroup-core-tools-debug packagegroup-qt5-toolchain-target linux-firmware matchbox-wm matchbox-desktop matchbox-terminal matchbox-keyboard bash-completion fbset imagemagick picocom iperf iotop libmodbus fbgrab gtkperf eglinfo-x11 hostapd libsocketcan canutils qtwebkit cinematicexperience fontconfig freetype xinput-calibrator wvdial ppp boost libusb1 python-modules python-core python-ctypes python-dev python-mmap python-shell python-threading util-linux-mkfs e2fsprogs tcpdump sqlite3 usbutils iw wpa-supplicant nfs-utils alsa-utils-alsamixer wireless-tools i2c-tools qtdeclarative-qmlplugins qtquickcontrols-qmlplugins qtquick1 nano hexedit espeak devmem2 usb-modeswitch lsof curl chromium gst1.0-fsl-plugin packagegroup-core-buildessential ldd xcursor-transparent-theme qtmultimedia rsync lighttpd-module-cgi"
+IMAGE_INSTALL += "packagegroup-core-boot \
+	packagegroup-core-eclipse-debug \
+	packagegroup-core-full-cmdline \
+	packagegroup-core-tools-debug \
+	packagegroup-core-x11 \
+	packagegroup-machine-base \
+	packagegroup-qt5-toolchain-target \
+	alsa-utils-alsamixer \
+	bash-completion \
+	boost \
+	canutils \
+	chromium \
+	cinematicexperience \
+	curl \
+	devmem2 \
+	e2fsprogs \
+	eglinfo-x11 \
+	espeak \
+	fbgrab \
+	fbset \
+	fontconfig \
+	freetype \
+	git \
+	gst1.0-fsl-plugin \
+	gtkperf \
+	hexedit \
+	hostapd \
+	i2c-tools \
+	imagemagick \
+	iotop \
+	iperf \
+	iw \
+	ldd \
+	libmodbus \
+	libsdl2 \
+	libsocketcan \
+	libusb1 \
+	lighttpd-module-cgi \
+	linux-firmware \
+	lsof \
+	matchbox-desktop \
+	matchbox-keyboard \
+	matchbox-terminal \
+	matchbox-wm \
+	modemmanager \
+	nano \
+	nfs-utils \
+	nodejs \
+	packagegroup-core-buildessential \
+	picocom \
+	ppp \
+	python-core \
+	python-ctypes \
+	python-dev \
+	python-mmap \
+	python-modules \
+	python-shell \
+	python-threading \
+	qtdeclarative-qmlplugins \
+	qtmultimedia \
+	qtquick1 \
+	qtquickcontrols-qmlplugins \
+	qtwebkit \
+	rsync \
+	sqlite3 \
+	tcpdump \
+	usb-modeswitch \
+	usbutils \
+	util-linux-mkfs \
+	wireless-tools \
+	wpa-supplicant \
+	wvdial \
+	xcursor-transparent-theme \
+	xinput-calibrator"
 
 EXTRA_IMAGE_FEATURES = "debug-tweaks"
 EXTRA_IMAGEDEPENDS += "qemu-native qemu-helper-native"
