@@ -11,7 +11,7 @@ DEPENDS += "lzop-native bc-native"
 
 SRCBRANCH = "imx_4.1.15_1.0.0_ga"
 LOCALVERSION = "-1.0.0-technologic"
-SRCREV = "d2fc81abf444a199a7f9cf1530909140b28f1708"
+SRCREV = "7a90b5feb65ba5f0d1e71bbb041ff85f683bce16"
 
 SRC_URI = "git://github.com/embeddedarm/linux-3.10.17-imx6.git;branch=${SRCBRANCH} \
            file://defconfig"
