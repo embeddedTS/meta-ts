@@ -1,12 +1,10 @@
 SUMMARY = "TS X11 Image"
 
-IMAGE_FEATURES += "package-management x11-base ssh-server-openssh tools-debug tools-profile eclipse-debug"
+IMAGE_FEATURES += "x11-base package-management ssh-server-openssh tools-debug tools-profile eclipse-debug nfs-client tools-sdk"
 
 IMAGE_INSTALL += "packagegroup-core-boot \
-	packagegroup-core-eclipse-debug \
+	packagegroup-core-buildessential \
 	packagegroup-core-full-cmdline \
-	packagegroup-core-tools-debug \
-	packagegroup-core-x11 \
 	packagegroup-machine-base \
 	packagegroup-qt5-toolchain-target \
 	alsa-utils-alsamixer \
@@ -15,6 +13,7 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	canutils \
 	chromium \
 	cinematicexperience \
+	clutter-1.0-examples \
 	curl \
 	devmem2 \
 	e2fsprogs \
@@ -26,7 +25,7 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	freetype \
 	git \
 	gst1.0-fsl-plugin \
-	gtkperf \
+	gtk+3-demo \
 	hexedit \
 	hostapd \
 	i2c-tools \
@@ -36,23 +35,20 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	iw \
 	ldd \
 	libmodbus \
-	libsdl2 \
 	libsocketcan \
 	libusb1 \
 	lighttpd-module-cgi \
 	linux-firmware \
 	lsof \
-	matchbox-desktop \
-	matchbox-keyboard \
-	matchbox-terminal \
 	matchbox-wm \
+	matchbox-terminal \
+	matchbox-keyboard \
 	modemmanager \
 	nano \
 	nfs-utils \
 	nodejs \
-	packagegroup-core-buildessential \
-	picocom \
 	ppp \
+	picocom \
 	python-core \
 	python-ctypes \
 	python-dev \
@@ -73,9 +69,9 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	util-linux-mkfs \
 	wireless-tools \
 	wpa-supplicant \
-	wvdial \
 	xcursor-transparent-theme \
-	xinput-calibrator"
+	xterm \
+	xinput-calibrator "
 
 EXTRA_IMAGE_FEATURES = "debug-tweaks"
 EXTRA_IMAGEDEPENDS += "qemu-native qemu-helper-native"
