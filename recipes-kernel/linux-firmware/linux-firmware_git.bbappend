@@ -3,7 +3,6 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += "file://TIInit_7.6.15.bts"
 SRC_URI += "file://wl1271-nvs.bin"
-LICENSE_${PN}-wl12xx =  "/lib/firmware/*"
 
 do_install_append() {
     install -d ${D}/lib/firmware/
