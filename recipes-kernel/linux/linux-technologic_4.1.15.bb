@@ -4,8 +4,6 @@
 require recipes-kernel/linux/linux-imx.inc
 require recipes-kernel/linux/linux-dtb.inc
 
-
-
 SUMMARY = "Linux kernel for TS IMX6 Boards"
 DESCRIPTION = "Linux Kernel based on linux-imx modified for TS board support."
 DEPENDS += "lzop-native bc-native"
