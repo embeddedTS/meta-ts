@@ -25,7 +25,7 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	espeak \
 	fbgrab \
 	fbset \
-	fontconfig \
+	fontconfig-utils \
 	freetype \
 	git \
 	gst1.0-fsl-plugin \
@@ -70,6 +70,9 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	sqlite3 \
 	tcpdump \
 	ttf-bitstream-vera \
+	ttf-dejavu-common \
+	ttf-dejavu-sans \
+	ttf-dejavu-sans-mono \
 	usb-modeswitch \
 	usbutils \
 	util-linux-mkfs \
