@@ -1,6 +1,6 @@
 SUMMARY = "TS X11 Image"
 
-IMAGE_FEATURES += "x11-base package-management ssh-server-openssh tools-debug tools-profile eclipse-debug nfs-client tools-sdk"
+IMAGE_FEATURES += "x11-base package-management ssh-server-openssh tools-debug tools-profile nfs-client tools-sdk"
 
 IMAGE_INSTALL += "packagegroup-core-boot \
 	packagegroup-core-buildessential \
