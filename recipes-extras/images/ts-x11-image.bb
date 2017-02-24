@@ -7,7 +7,11 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	packagegroup-core-full-cmdline \
 	packagegroup-machine-base \
 	packagegroup-qt5-toolchain-target \
+	alsa-utils-alsactl \
 	alsa-utils-alsamixer \
+	alsa-utils-amixer \
+	alsa-utils-aplay \
+	alsa-utils-speakertest \
 	bash-completion \
 	boost \
 	canutils \
@@ -34,21 +38,22 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	iperf \
 	iw \
 	ldd \
+	liberation-fonts \
 	libmodbus \
 	libsocketcan \
 	libusb1 \
 	lighttpd-module-cgi \
 	linux-firmware \
 	lsof \
-	matchbox-wm \
-	matchbox-terminal \
 	matchbox-keyboard \
+	matchbox-terminal \
+	matchbox-wm \
 	modemmanager \
 	nano \
 	nfs-utils \
 	nodejs \
-	ppp \
 	picocom \
+	ppp \
 	python-core \
 	python-ctypes \
 	python-dev \
@@ -64,14 +69,15 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	rsync \
 	sqlite3 \
 	tcpdump \
+	ttf-bitstream-vera \
 	usb-modeswitch \
 	usbutils \
 	util-linux-mkfs \
 	wireless-tools \
 	wpa-supplicant \
 	xcursor-transparent-theme \
-	xterm \
-	xinput-calibrator "
+	xinput-calibrator \
+	xterm "
 
 EXTRA_IMAGE_FEATURES = "debug-tweaks"
 EXTRA_IMAGEDEPENDS += "qemu-native qemu-helper-native"
