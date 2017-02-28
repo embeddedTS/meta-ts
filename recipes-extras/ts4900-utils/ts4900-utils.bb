@@ -10,7 +10,7 @@ DEPENDS = ""
 
 SRC_URI = "git://github.com/embeddedarm/ts4900-utils.git;branch=master"
 
-SRCREV = "8eab245e6561032afcbed90eef39fbbd27848bf6"
+SRCREV = "9bcab0fdba9614997fa55554c5ebedad96c87f46"
 PV = "0.99.0+git${SRCPV}"
 
 S = "${WORKDIR}/git"
