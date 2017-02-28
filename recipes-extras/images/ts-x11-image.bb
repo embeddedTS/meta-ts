@@ -1,6 +1,6 @@
 SUMMARY = "TS X11 Image"
 
-IMAGE_FEATURES += "x11-base package-management ssh-server-openssh tools-debug tools-profile nfs-client tools-sdk"
+IMAGE_FEATURES += "x11-base debug-tweaks package-management ssh-server-openssh tools-debug tools-profile nfs-client qtcreator-debug tools-sdk"
 
 IMAGE_INSTALL += "packagegroup-core-boot \
 	packagegroup-core-buildessential \
@@ -52,6 +52,8 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	nano \
 	nfs-utils \
 	nodejs \
+	openssh-sftp \
+	openssh-sftp-server \
 	picocom \
 	ppp \
 	python-core \
@@ -61,10 +63,18 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	python-modules \
 	python-shell \
 	python-threading \
+	qt5-opengles2-test \
+	qtcharts \
 	qtdeclarative-qmlplugins \
 	qtmultimedia \
 	qtquick1 \
 	qtquickcontrols-qmlplugins \
+	qtquickcontrols2 \
+	qtscript \
+	qtsensors \
+	qtserialbus \
+	qtserialport \
+	qtvirtualkeyboard \
 	qtwebkit \
 	rsync \
 	sqlite3 \
@@ -82,7 +92,6 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	xinput-calibrator \
 	xterm "
 
-EXTRA_IMAGE_FEATURES = "debug-tweaks"
 EXTRA_IMAGEDEPENDS += "qemu-native qemu-helper-native"
 
 LICENSE = "MIT"
