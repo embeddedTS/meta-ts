@@ -64,6 +64,9 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	python-shell \
 	python-threading \
 	qt5-opengles2-test \
+	qtbase \
+	qtbase-plugins \
+	qtbase-tools \
 	qtcharts \
 	qtdeclarative-qmlplugins \
 	qtmultimedia \
