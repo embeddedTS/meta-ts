@@ -9,7 +9,7 @@ DESCRIPTION = "Linux Kernel based on linux-imx modified for TS board support."
 DEPENDS += "lzop-native bc-native"
 SRCBRANCH = "imx_4.1.15_1.0.0_ga"
 LOCALVERSION = "-1.0.0-technologic"
-SRCREV = "a33faa48e03bb191f432b93b6f4f6514ad055d82"
+SRCREV = "7fb45e98daeccaed30e4ce60039bdf2fe83b7ce5"
 SRC_URI = "git://github.com/embeddedarm/linux-3.10.17-imx6.git;branch=${SRCBRANCH} \
            file://defconfig"
 COMPATIBLE_MACHINE = "(tsimx6)"
