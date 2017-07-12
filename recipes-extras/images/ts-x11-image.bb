@@ -15,7 +15,6 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	bash-completion \
 	boost \
 	canutils \
-	chromium \
 	cinematicexperience \
 	clutter-1.0-examples \
 	curl \
