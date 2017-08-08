@@ -1,2 +1,1 @@
-PACKAGECONFIG_append = " sql-sqlite"
-PACKAGECONFIG_append = " sql-mysql"
+PACKAGECONFIG_append = " sql-sqlite sql-mysql icu accessibility"
