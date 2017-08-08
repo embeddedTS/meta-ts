@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384
 
 SRC_URI = "git://github.com/embeddedarm/ts4900-utils.git;branch=master \
            file://tssilomon.service"
-SRCREV = "9cc3ba4be9afd926bb1996c718a8b00455c0e5f8"
+SRCREV = "c56c41db10692cf4c6677092ff97cb64dfca3015"
 PV = "1.0.0+git${SRCPV}"
 S = "${WORKDIR}/git"
 
@@ -27,4 +27,3 @@ do_install_append() {
 SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = "tssilomon.service"
 SYSTEMD_AUTO_ENABLE = "enable"
-
