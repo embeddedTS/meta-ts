@@ -22,6 +22,7 @@ do_install_append() {
     if ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}; then
         install -d ${D}${systemd_unitdir}/system
         install -m 0644 ${WORKDIR}/tssilomon.service ${D}${systemd_unitdir}/system
+        install -m 0755 ${S}/script/tssilomon ${D}${bindir}
 
         sed -i -e 's#@BINDIR@#${bindir}#g' ${D}${systemd_unitdir}/system/tssilomon.service
     fi
