@@ -15,11 +15,7 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	bash-completion \
 	boost \
 	canutils \
-	chromium \
-	cinematicexperience \
-	clutter-1.0-examples \
 	curl \
-	devmem2 \
 	e2fsprogs \
 	eglinfo-x11 \
 	espeak \
@@ -29,7 +25,6 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	freetype \
 	git \
 	gst1.0-fsl-plugin \
-	gtk+3-demo \
 	hexedit \
 	hostapd \
 	i2c-tools \
@@ -48,7 +43,6 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	matchbox-keyboard \
 	matchbox-terminal \
 	matchbox-wm \
-	modemmanager \
 	nano \
 	nfs-utils \
 	nodejs \
@@ -56,18 +50,9 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	openssh-sftp-server \
 	picocom \
 	ppp \
-	python-core \
-	python-ctypes \
-	python-dev \
-	python-mmap \
-	python-modules \
-	python-shell \
-	python-threading \
-	qt5-opengles2-test \
 	qtbase \
 	qtbase-plugins \
 	qtbase-tools \
-	qtcharts \
 	qtdeclarative-qmlplugins \
 	qtmultimedia \
 	qtquick1 \
@@ -75,17 +60,13 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	qtquickcontrols2 \
 	qtscript \
 	qtsensors \
-	qtserialbus \
-	qtserialport \
-	qtvirtualkeyboard \
-	qtwebkit \
 	rsync \
 	sqlite3 \
-	tcpdump \
 	ttf-bitstream-vera \
 	ttf-dejavu-common \
 	ttf-dejavu-sans \
 	ttf-dejavu-sans-mono \
+	u-boot-fw-utils \
 	usb-modeswitch \
 	usbutils \
 	util-linux-mkfs \
