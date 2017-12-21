@@ -34,7 +34,7 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	i2c-tools \
 	imagemagick \
 	iotop \
-	iperf \
+	iperf3 \
 	iw \
 	ldd \
 	liberation-fonts \
