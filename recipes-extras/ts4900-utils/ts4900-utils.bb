@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384
 
 SRC_URI = "git://github.com/embeddedarm/ts4900-utils.git;branch=master \
            file://tssilomon.service"
-SRCREV = "cc0df5b1266d61fadbdc95528f545e570d562d5e"
+SRCREV = "6bed161354df7967d8a8646c7b0f81a26d764204"
 PV = "1.0.0+git${SRCPV}"
 S = "${WORKDIR}/git"
 
