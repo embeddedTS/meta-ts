@@ -15,7 +15,8 @@ S = "${WORKDIR}/git"
 
 inherit autotools systemd
 
-do_install() {
+do_install_append() {
+    install -m 0755 ${S}/script/tssilomon ${D}${bindir}
     if ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}; then
         install -d ${D}${systemd_unitdir}/system
         install -m 0644 ${WORKDIR}/tssilomon.service ${D}${systemd_unitdir}/system
