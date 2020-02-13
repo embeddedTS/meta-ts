@@ -1,6 +1,6 @@
 SUMMARY = "TS X11 Image"
 
-IMAGE_FEATURES += "x11-base debug-tweaks package-management ssh-server-openssh tools-debug tools-profile nfs-client qtcreator-debug tools-sdk"
+IMAGE_FEATURES += "x11-base debug-tweaks package-management ssh-server-openssh tools-debug nfs-client qtcreator-debug tools-sdk"
 
 IMAGE_INSTALL += "packagegroup-core-boot \
 	packagegroup-core-buildessential \
@@ -15,13 +15,11 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	bash-completion \
 	boost \
 	canutils \
-	chromium \
 	cinematicexperience \
 	clutter-1.0-examples \
 	curl \
 	devmem2 \
 	e2fsprogs \
-	eglinfo-x11 \
 	espeak \
 	fbgrab \
 	fbset \
@@ -35,7 +33,8 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	i2c-tools \
 	imagemagick \
 	iotop \
-	iperf \
+	iperf2 \
+	iperf3 \
 	iw \
 	ldd \
 	liberation-fonts \
@@ -68,9 +67,7 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	qtbase-plugins \
 	qtbase-tools \
 	qtcharts \
-	qtdeclarative-qmlplugins \
 	qtmultimedia \
-	qtquick1 \
 	qtquickcontrols-qmlplugins \
 	qtquickcontrols2 \
 	qtscript \
@@ -89,7 +86,6 @@ IMAGE_INSTALL += "packagegroup-core-boot \
 	usb-modeswitch \
 	usbutils \
 	util-linux-mkfs \
-	wireless-tools \
 	wpa-supplicant \
 	xcursor-transparent-theme \
 	xinput-calibrator \
