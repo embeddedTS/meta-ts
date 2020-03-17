@@ -9,6 +9,7 @@ SRC_URI += "file://wilc3000_bt_firmware_no_rtc.bin"
 SRC_URI += "file://wilc3000_wifi_firmware.bin"
 SRC_URI += "file://wilc3000_ble_firmware.bin"
 SRC_URI += "file://wilc3000_ble_firmware_no_rtc.bin"
+SRC_URI += "file://wilc.conf"
 
 do_install_append() {
     install -d ${D}/lib/firmware/
@@ -23,4 +24,7 @@ do_install_append() {
     install -m 0444 ${WORKDIR}/wilc3000_wifi_firmware.bin ${D}/lib/firmware/mchp/
     install -m 0444 ${WORKDIR}/wilc3000_ble_firmware.bin ${D}/lib/firmware/mchp/
     install -m 0444 ${WORKDIR}/wilc3000_ble_firmware_no_rtc.bin ${D}/lib/firmware/mchp/
+
+    install -d ${D}/etc/modules-load.d/
+    install -m 0644 ${WORKDIR}/wilc.conf ${D}/etc/modules-load.d/
 }
