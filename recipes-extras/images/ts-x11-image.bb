@@ -28,11 +28,18 @@ IMAGE_INSTALL_append = " \
 	freetype \
 	git \
 	gst1.0-fsl-plugin \
+	gstreamer1.0 \
+	gstreamer1.0-meta-base \
+	gstreamer1.0-plugins-base \
+	gstreamer1.0-plugins-bad \
+	gstreamer1.0-plugins-good \
+	gstreamer1.0-plugins-imx \
 	gtk+3-demo \
 	hexedit \
 	hostapd \
 	i2c-tools \
 	imagemagick \
+	imx-gst1.0-plugin \
 	iotop \
 	iperf2 \
 	iperf3 \
@@ -69,6 +76,8 @@ IMAGE_INSTALL_append = " \
 	qtbase-tools \
 	qtcharts \
 	qtmultimedia \
+	qtmultimedia-plugins \
+	qtmultimedia-qmlplugins \
 	qtquickcontrols-qmlplugins \
 	qtquickcontrols2 \
 	qtscript \
