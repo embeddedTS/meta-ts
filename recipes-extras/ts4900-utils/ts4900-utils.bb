@@ -4,12 +4,12 @@ AUTHOR = "Mark Featherston <mark@embeddedarm.com>"
 HOMEPAGE = "http://www.embeddedarm.com/"
 SECTION = "base"
 
-LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
+LICENSE = "BSD-2-Clause"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=08eb81eeaccfa92905e7444a5a37bcf2"
 
 SRC_URI = "git://github.com/embeddedarm/ts4900-utils.git;branch=master \
            file://tssilomon.service"
-SRCREV = "c56c41db10692cf4c6677092ff97cb64dfca3015"
+SRCREV = "f6a0a778a81c31b94bd5118a04863dc4925a8e2a"
 PV = "1.0.0+git${SRCPV}"
 S = "${WORKDIR}/git"
 
