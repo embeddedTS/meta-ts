@@ -93,6 +93,7 @@ IMAGE_INSTALL_append = " \
 	ttf-dejavu-common \
 	ttf-dejavu-sans \
 	ttf-dejavu-sans-mono \
+	tzdata \
 	usb-modeswitch \
 	usbutils \
 	util-linux-mkfs \
