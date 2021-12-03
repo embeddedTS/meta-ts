@@ -1,0 +1,47 @@
+From accc94849c92881f2e0e74efb025eb9efa7c3126 Mon Sep 17 00:00:00 2001
+From: Dawei Chen <dchen@silexamerica.com>
+Date: Mon, 24 Jul 2017 15:55:56 -0700
+Subject: [PATCH 3/5] QCA9377-UART-Skip-NVM-BDADDR
+
+---
+ tools/hciattach_rome.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/tools/hciattach_rome.c b/tools/hciattach_rome.c
+index 6427e8c..e1a5979 100644
+--- a/tools/hciattach_rome.c
++++ b/tools/hciattach_rome.c
+@@ -1091,6 +1091,22 @@ int rome_get_tlv_file(char *file_path, int ibs, unsigned char cfg_baud)
+ 			nvm_index+=sizeof(tlv_nvm_hdr);
+ 			nvm_byte_ptr+=sizeof(tlv_nvm_hdr);
+ 
++			// bdaddr hack - remove it from nvm data
++			if (nvm_ptr->tag_id == TAG_NUM_2) {
++				int nvm_size = nvm_ptr->tag_len +
++					sizeof(tlv_nvm_hdr);
++				nvm_index += nvm_ptr->tag_len;
++				nvm_byte_ptr += nvm_ptr->tag_len;
++				memmove(nvm_ptr, nvm_byte_ptr,
++					nvm_length - nvm_index);
++				pr_err("Skip BD Address from NVM\n");
++				nvm_length -= nvm_size;
++				nvm_byte_ptr -= nvm_size;
++				readSize -= nvm_size;
++				nvm_index -= nvm_size;
++				continue;
++			}
++#if 0 // SX-SDMAC has unique BDADDR
+ 			/* Write BD Address */
+ 			if (nvm_ptr->tag_id == TAG_NUM_2 &&
+ 			    read_bd_address(&bdaddr) == 0) {
+@@ -1102,6 +1118,7 @@ int rome_get_tlv_file(char *file_path, int ibs, unsigned char cfg_baud)
+ 					*(nvm_byte_ptr+2), *(nvm_byte_ptr+3),
+ 					*(nvm_byte_ptr+4), *(nvm_byte_ptr+5));
+ 			}
++#endif
+ 			/* Read from file and check what PCM Configuration is
+ 			 * required: Master = 0 /Slave = 1 */
+ 			/* Override PCM configuration */
+-- 
+2.7.4
+
