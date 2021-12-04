@@ -1,0 +1,28 @@
+From c3e4ea246c4f226bb9522b517b809053fa31ecfa Mon Sep 17 00:00:00 2001
+From: Dawei Chen <dchen@silexamerica.com>
+Date: Mon, 24 Jul 2017 15:57:25 -0700
+Subject: [PATCH 4/5] Obex-Set-DBUS-Session-Service
+
+---
+ obexd/src/obex.service.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+
+Kris Bahnsen <kris@embeddedarm.com>
+Modified ExecStart string to match 5.61 BlueZ
+
+diff --git a/obexd/src/obex.service.in b/obexd/src/obex.service.in
+index bca3aef..da8c5a7 100644
+--- a/obexd/src/obex.service.in
++++ b/obexd/src/obex.service.in
+@@ -4,6 +4,7 @@ Description=Bluetooth OBEX service
+ [Service]
+ Type=dbus
+ BusName=org.bluez.obex
++Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/var/run/dbus/system_bus_socket"
+ ExecStart=@libexecdir@/obexd
+ 
+ [Install]
+-- 
+2.7.4
+
