@@ -1,4 +1,4 @@
-From b3d3a65d8f3152b94119cd732236a53f34b2fa41 Mon Sep 17 00:00:00 2001
+From b7126da60293c9ec8765f95e16c4aaf3e2a8face Mon Sep 17 00:00:00 2001
 From: Dawei Chen <dchen@silexamerica.com>
 Date: Thu, 7 Jun 2018 16:14:20 -0700
 Subject: [PATCH] QCA9377 HCI UART Support.
@@ -7,17 +7,17 @@ Subject: [PATCH] QCA9377 HCI UART Support.
  Makefile.tools         |    3 +-
  tools/hciattach.c      |   46 +-
  tools/hciattach.h      |    2 +
- tools/hciattach_rome.c | 1824 ++++++++++++++++++++++++++++++++++++++++++++++++
- tools/hciattach_rome.h |  354 ++++++++++
+ tools/hciattach_rome.c | 1824 ++++++++++++++++++++++++++++++++++++++++
+ tools/hciattach_rome.h |  354 ++++++++
  5 files changed, 2226 insertions(+), 3 deletions(-)
  create mode 100644 tools/hciattach_rome.c
  create mode 100644 tools/hciattach_rome.h
 
 diff --git a/Makefile.tools b/Makefile.tools
-index f7ab77d..152c7dc 100644
+index d5fdf2d..baafecf 100644
 --- a/Makefile.tools
 +++ b/Makefile.tools
-@@ -311,7 +311,8 @@ tools_hciattach_SOURCES = tools/hciattach.c tools/hciattach.h \
+@@ -350,7 +350,8 @@ tools_hciattach_SOURCES = tools/hciattach.c tools/hciattach.h \
  						tools/hciattach_ath3k.c \
  						tools/hciattach_qualcomm.c \
  						tools/hciattach_intel.c \
@@ -26,12 +26,12 @@ index f7ab77d..152c7dc 100644
 +						tools/hciattach_rome.c tools/hciattach_rome.h
  tools_hciattach_LDADD = lib/libbluetooth-internal.la
  
- tools_hciconfig_SOURCES = tools/hciconfig.c tools/csr.h tools/csr.c
+ tools_hciconfig_SOURCES = tools/hciconfig.c
 diff --git a/tools/hciattach.c b/tools/hciattach.c
-index fad176c..05a86ad 100644
+index 276a4e5..14213e7 100644
 --- a/tools/hciattach.c
 +++ b/tools/hciattach.c
-@@ -69,6 +69,8 @@ struct uart_t {
+@@ -57,6 +57,8 @@ struct uart_t {
  #define ENABLE_PM	1
  #define DISABLE_PM	0
  
@@ -40,7 +40,7 @@ index fad176c..05a86ad 100644
  static volatile sig_atomic_t __io_canceled = 0;
  
  static void sig_hup(int sig)
-@@ -107,16 +109,34 @@ int read_hci_event(int fd, unsigned char* buf, int size)
+@@ -95,16 +97,34 @@ int read_hci_event(int fd, unsigned char* buf, int size)
  {
  	int remain, r;
  	int count = 0;
@@ -76,7 +76,7 @@ index fad176c..05a86ad 100644
  		if (buf[0] == 0x04)
  			break;
  	}
-@@ -263,6 +283,12 @@ static int ath3k_pm(int fd, struct uart_t *u, struct termios *ti)
+@@ -251,6 +271,12 @@ static int ath3k_pm(int fd, struct uart_t *u, struct termios *ti)
  	return ath3k_post(fd, u->pm);
  }
  
@@ -89,7 +89,7 @@ index fad176c..05a86ad 100644
  static int qualcomm(int fd, struct uart_t *u, struct termios *ti)
  {
  	return qualcomm_init(fd, u->speed, ti, u->bdaddr);
-@@ -1093,6 +1119,10 @@ struct uart_t uart[] = {
+@@ -1081,6 +1107,10 @@ struct uart_t uart[] = {
  	{ "ath3k",    0x0000, 0x0000, HCI_UART_ATH3K, 115200, 115200,
  			FLOW_CTL, DISABLE_PM, NULL, ath3k_ps, ath3k_pm  },
  
@@ -100,7 +100,7 @@ index fad176c..05a86ad 100644
  	/* QUALCOMM BTS */
  	{ "qualcomm",   0x0000, 0x0000, HCI_UART_H4,   115200, 115200,
  			FLOW_CTL, DISABLE_PM, NULL, qualcomm, NULL },
-@@ -1195,6 +1225,8 @@ static int init_uart(char *dev, struct uart_t *u, int send_break, int raw)
+@@ -1183,6 +1213,8 @@ static int init_uart(char *dev, struct uart_t *u, int send_break, int raw)
  		goto fail;
  	}
  
@@ -109,7 +109,7 @@ index fad176c..05a86ad 100644
  	/* Set TTY to N_HCI line discipline */
  	i = N_HCI;
  	if (ioctl(fd, TIOCSETD, &i) < 0) {
-@@ -1211,6 +1243,7 @@ static int init_uart(char *dev, struct uart_t *u, int send_break, int raw)
+@@ -1199,6 +1231,7 @@ static int init_uart(char *dev, struct uart_t *u, int send_break, int raw)
  		perror("Can't set device");
  		goto fail;
  	}
@@ -117,7 +117,7 @@ index fad176c..05a86ad 100644
  
  	if (u->post && u->post(fd, u, &ti) < 0)
  		goto fail;
-@@ -1249,7 +1282,7 @@ int main(int argc, char *argv[])
+@@ -1237,7 +1270,7 @@ int main(int argc, char *argv[])
  	printpid = 0;
  	raw = 0;
  
@@ -126,7 +126,7 @@ index fad176c..05a86ad 100644
  		switch(opt) {
  		case 'b':
  			send_break = 1;
-@@ -1282,6 +1315,11 @@ int main(int argc, char *argv[])
+@@ -1270,6 +1303,11 @@ int main(int argc, char *argv[])
  			raw = 1;
  			break;
  
@@ -138,7 +138,7 @@ index fad176c..05a86ad 100644
  		default:
  			usage();
  			exit(1);
-@@ -1350,6 +1388,7 @@ int main(int argc, char *argv[])
+@@ -1338,6 +1376,7 @@ int main(int argc, char *argv[])
  		case 5:
  			u->bdaddr = argv[optind];
  			break;
@@ -146,7 +146,7 @@ index fad176c..05a86ad 100644
  		}
  	}
  
-@@ -1426,12 +1465,15 @@ int main(int argc, char *argv[])
+@@ -1414,12 +1453,15 @@ int main(int argc, char *argv[])
  			break;
  	}
  
@@ -163,10 +163,10 @@ index fad176c..05a86ad 100644
  	return 0;
  }
 diff --git a/tools/hciattach.h b/tools/hciattach.h
-index 249aab4..59efa31 100644
+index 26c0d54..ce808ad 100644
 --- a/tools/hciattach.h
 +++ b/tools/hciattach.h
-@@ -45,6 +45,7 @@
+@@ -32,6 +32,7 @@
  #define HCI_UART_AG6XX	9
  #define HCI_UART_NOKIA	10
  #define HCI_UART_MRVL	11
@@ -174,7 +174,7 @@ index 249aab4..59efa31 100644
  
  #define HCI_UART_RAW_DEVICE	0
  #define HCI_UART_RESET_ON_INIT	1
-@@ -65,6 +66,7 @@ int bgb2xx_init(int dd, bdaddr_t *bdaddr);
+@@ -52,6 +53,7 @@ int bgb2xx_init(int dd, bdaddr_t *bdaddr);
  int ath3k_init(int fd, int speed, int init_speed, char *bdaddr,
  						struct termios *ti);
  int ath3k_post(int fd, int pm);
@@ -2372,6 +2372,3 @@ index 0000000..08394b4
 +    TUFELLO_VER_1_1 = ((ROME_PATCH_VER_0302 << 16 ) | ROME_SOC_ID_23 )
 +};
 +#endif /* HW_ROME_H */
--- 
-2.7.4
-

@@ -1,20 +1,20 @@
-From 000e8a5a953d2b69a10e6b96e864ac6128c781ed Mon Sep 17 00:00:00 2001
+From 5fd93374c46b06efe8bc0439618ae65143c4704e Mon Sep 17 00:00:00 2001
 From: Dawei Chen <dchen@silexamerica.com>
 Date: Mon, 24 Jul 2017 15:54:49 -0700
-Subject: [PATCH 2/5] QCA9377-UART-H4-IBS-Support-Baudrate-Fix
+Subject: [PATCH] QCA9377-UART-H4-IBS-Support-Baudrate-Fix
 
 ---
  tools/hciattach.c      |   17 +-
  tools/hciattach.h      |    2 +-
- tools/hciattach_rome.c | 3418 ++++++++++++++++++++++++++----------------------
- tools/hciattach_rome.h |  175 +--
+ tools/hciattach_rome.c | 3418 +++++++++++++++++++++-------------------
+ tools/hciattach_rome.h |  175 +-
  4 files changed, 1928 insertions(+), 1684 deletions(-)
 
 diff --git a/tools/hciattach.c b/tools/hciattach.c
-index 4d33757..9b19790 100644
+index 14213e7..f1a73f6 100644
 --- a/tools/hciattach.c
 +++ b/tools/hciattach.c
-@@ -339,8 +339,12 @@ static int ath3k_pm(int fd, struct uart_t *u, struct termios *ti)
+@@ -273,8 +273,12 @@ static int ath3k_pm(int fd, struct uart_t *u, struct termios *ti)
  
  static int qca(int fd, struct uart_t *u, struct termios *ti)
  {
@@ -29,7 +29,7 @@ index 4d33757..9b19790 100644
  }
  
  static int qualcomm(int fd, struct uart_t *u, struct termios *ti)
-@@ -1174,7 +1178,11 @@ struct uart_t uart[] = {
+@@ -1108,7 +1112,11 @@ struct uart_t uart[] = {
  			FLOW_CTL, DISABLE_PM, NULL, ath3k_ps, ath3k_pm  },
  
  	/* QCA ROME */
@@ -42,7 +42,7 @@ index 4d33757..9b19790 100644
                          FLOW_CTL, DISABLE_PM, NULL, qca, NULL },
  
  	/* QUALCOMM BTS */
-@@ -1229,6 +1237,9 @@ static int init_uart(char *dev, struct uart_t *u, int send_break, int raw)
+@@ -1163,6 +1171,9 @@ static int init_uart(char *dev, struct uart_t *u, int send_break, int raw)
  	if (u->flags & AMP_DEV)
  		flags |= 1 << HCI_UART_CREATE_AMP;
  
@@ -53,10 +53,10 @@ index 4d33757..9b19790 100644
  	if (fd < 0) {
  		perror("Can't open serial port");
 diff --git a/tools/hciattach.h b/tools/hciattach.h
-index c46c105..eebff74 100644
+index ce808ad..2e4d900 100644
 --- a/tools/hciattach.h
 +++ b/tools/hciattach.h
-@@ -63,7 +63,7 @@ int bgb2xx_init(int dd, bdaddr_t *bdaddr);
+@@ -53,7 +53,7 @@ int bgb2xx_init(int dd, bdaddr_t *bdaddr);
  int ath3k_init(int fd, int speed, int init_speed, char *bdaddr,
  						struct termios *ti);
  int ath3k_post(int fd, int pm);
@@ -3878,6 +3878,3 @@ index 08394b4..687de91 100644
  
  
  #define LSH(val, n)     ((unsigned int)(val) << (n))
--- 
-2.7.4
-

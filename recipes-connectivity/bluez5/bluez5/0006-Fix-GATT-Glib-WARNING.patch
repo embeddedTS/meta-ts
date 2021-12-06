@@ -1,4 +1,4 @@
-From f887913ea24e7f75239cfe8e808323c8691c4550 Mon Sep 17 00:00:00 2001
+From fe6db4588732d915d85f0ef4d0c1b49d4feaa9ed Mon Sep 17 00:00:00 2001
 From: Dawei Chen <dchen@silexamerica.com>
 Date: Wed, 2 Aug 2017 09:52:00 -0700
 Subject: [PATCH] Fix GATT Glib-WARNING Fix Glib-WARNING**:. Invalid file
@@ -9,10 +9,10 @@ Subject: [PATCH] Fix GATT Glib-WARNING Fix Glib-WARNING**:. Invalid file
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/attrib/interactive.c b/attrib/interactive.c
-index 7d4786a..ca585fe 100644
+index 171b957..2bf854e 100644
 --- a/attrib/interactive.c
 +++ b/attrib/interactive.c
-@@ -192,10 +192,11 @@ static void disconnect_io()
+@@ -180,10 +180,11 @@ static void disconnect_io()
  	attrib = NULL;
  	opt_mtu = 0;
  
@@ -25,6 +25,3 @@ index 7d4786a..ca585fe 100644
  	set_state(STATE_DISCONNECTED);
  }
  
--- 
-2.7.4
-
