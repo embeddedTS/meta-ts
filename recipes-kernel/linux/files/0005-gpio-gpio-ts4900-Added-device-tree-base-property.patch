@@ -1,0 +1,46 @@
+From 8271bc08a9f79f969b88c598a786c94985db5901 Mon Sep 17 00:00:00 2001
+From: Mark Featherston <mark@embeddedarm.com>
+Date: Fri, 31 Aug 2018 08:42:44 -0700
+Subject: [PATCH 05/10] gpio: gpio-ts4900: Added device tree base property
+
+This allows consistent numbering between products.  While not required,
+this makes the gpio numbers in our manuals match linux.
+
+commit 1cdddde5f71acd177532794e52730f255e1e35ea in
+https://github.com/embeddedarm/linux-tsimx/
+---
+ drivers/gpio/gpio-ts4900.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/gpio/gpio-ts4900.c b/drivers/gpio/gpio-ts4900.c
+index 90b97cc87d57..cee0e8bd47e8 100644
+--- a/drivers/gpio/gpio-ts4900.c
++++ b/drivers/gpio/gpio-ts4900.c
+@@ -147,11 +147,16 @@ static int ts4900_gpio_probe(struct i2c_client *client,
+ {
+ 	struct ts4900_gpio_priv *priv;
+ 	u32 ngpio;
++	u32 base;
+ 	int ret;
+ 
+ 	if (of_property_read_u32(client->dev.of_node, "ngpios", &ngpio))
+ 		ngpio = DEFAULT_PIN_NUMBER;
+ 
++	
++	if (of_property_read_u32(client->dev.of_node, "base", &base))
++		base = -1;
++
+ 	priv = devm_kzalloc(&client->dev, sizeof(*priv), GFP_KERNEL);
+ 	if (!priv)
+ 		return -ENOMEM;
+@@ -159,6 +164,7 @@ static int ts4900_gpio_probe(struct i2c_client *client,
+ 	priv->gpio_chip = template_chip;
+ 	priv->gpio_chip.label = "ts4900-gpio";
+ 	priv->gpio_chip.ngpio = ngpio;
++	priv->gpio_chip.base = base;
+ 	priv->gpio_chip.parent = &client->dev;
+ 	priv->input_bit = (uintptr_t)of_device_get_match_data(&client->dev);
+ 
+-- 
+2.11.0
+

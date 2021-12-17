@@ -15,7 +15,10 @@ KERNEL_SRC ?= "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
 SRC_URI = "${KERNEL_SRC};branch=${SRCBRANCH} \
            file://defconfig \
            file://0001-ARM-dts-TS-7970-updated-support.patch \
-           file://0002-ARM-dts-Add-TS-7970-Rev.-F-PCB-support.patch"
+           file://0002-ARM-dts-Add-TS-7970-Rev.-F-PCB-support.patch \
+           file://0003-wlcore-Enable-PM-operations-on-card-during-probe.patch \
+           file://0004-gpio-gpio-ts4900-Do-not-set-data-and-OE-together.patch \
+           file://0005-gpio-gpio-ts4900-Added-device-tree-base-property.patch"
 LOCAL_VERSION = "-1.1"
 SRCREV = "e4f2aee6612e56c2a9a5da6131ccd80e57d5075b"
 LINUX_VERSION = "5.10.85"

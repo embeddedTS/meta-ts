@@ -1,18 +1,18 @@
-From 82a4588de60185590654f8576c1de271da8dc21c Mon Sep 17 00:00:00 2001
+From 37df4cc584f549992fb59257a47f44a49ee2099b Mon Sep 17 00:00:00 2001
 From: Kris Bahnsen <kris@embeddedarm.com>
 Date: Tue, 14 Dec 2021 10:51:55 -0800
-Subject: [PATCH 1/2] ARM: dts: TS-7970 updated support
+Subject: [PATCH 01/10] ARM: dts: TS-7970 updated support
 
 Based on commit ad2875c66161988193976eccaa22b82f4e853dd5 from
 https://github.com/embeddedarm/linux-tsimx/
 
 Patched to better support upstream 5.10 kernel
 ---
- arch/arm/boot/dts/imx6qdl-ts7970.dtsi | 38 +++++++++++++++++++++++++++++++++--
- 1 file changed, 36 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/imx6qdl-ts7970.dtsi | 66 +++++++++++++++++++++++++++++------
+ 1 file changed, 56 insertions(+), 10 deletions(-)
 
 diff --git a/arch/arm/boot/dts/imx6qdl-ts7970.dtsi b/arch/arm/boot/dts/imx6qdl-ts7970.dtsi
-index e6aa0c33754d..fbbccb5523b3 100644
+index e6aa0c33754d..b283be27d0ec 100644
 --- a/arch/arm/boot/dts/imx6qdl-ts7970.dtsi
 +++ b/arch/arm/boot/dts/imx6qdl-ts7970.dtsi
 @@ -44,6 +44,14 @@
@@ -38,7 +38,34 @@ index e6aa0c33754d..fbbccb5523b3 100644
  	};
  
  	reg_3p3v: regulator-3p3v {
-@@ -186,6 +193,30 @@
+@@ -97,20 +104,22 @@
+ 
+ 	reg_can1_3v3: reg_can1_3v3 {
+ 		compatible = "regulator-fixed";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_flexcan1_en>;
+ 		regulator-name = "reg_can1_3v3";
+ 		regulator-min-microvolt = <3300000>;
+ 		regulator-max-microvolt = <3300000>;
+-		gpio = <&gpio4 21 GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
++		gpio = <&gpio4 21 GPIO_ACTIVE_LOW>;
+ 	};
+ 
+ 	reg_can2_3v3: en-reg_can2_3v3 {
+ 		compatible = "regulator-fixed";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_flexcan2_en>;
+ 		regulator-name = "reg_can2_3v3";
+ 		regulator-min-microvolt = <3300000>;
+ 		regulator-max-microvolt = <3300000>;
+-		gpio = <&gpio6 31 GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
++		gpio = <&gpio6 31 GPIO_ACTIVE_LOW>;
+ 	};
+ 
+ 	reg_usb_otg_vbus: regulator-usb-otg-vbus {
+@@ -186,6 +195,30 @@
  	pinctrl-names = "default";
  	pinctrl-0 = <&pinctrl_ecspi2>;
  	status = "okay";
@@ -69,7 +96,7 @@ index e6aa0c33754d..fbbccb5523b3 100644
  };
  
  &fec {
-@@ -199,6 +230,7 @@
+@@ -199,6 +232,7 @@
  };
  
  &hdmi {
@@ -77,17 +104,67 @@ index e6aa0c33754d..fbbccb5523b3 100644
  	status = "okay";
  };
  
-@@ -226,7 +258,8 @@
+@@ -207,8 +241,8 @@
+ 	pinctrl-names = "default", "gpio";
+ 	pinctrl-0 = <&pinctrl_i2c1>;
+ 	pinctrl-1 = <&pinctrl_i2c1_gpio>;
+-	scl-gpios = <&gpio3 21 GPIO_ACTIVE_HIGH>;
+-	sda-gpios = <&gpio3 28 GPIO_ACTIVE_HIGH>;
++	scl-gpios = <&gpio3 21 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	sda-gpios = <&gpio3 28 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 	status = "okay";
+ 
+ 	m41t00s: rtc@68 {
+@@ -226,7 +260,8 @@
  		reg = <0x28>;
  		#gpio-cells = <2>;
  		gpio-controller;
 -		ngpio = <32>;
-+		ngpio = <64>;
++		ngpios = <64>;
 +		base = <224>;
  	};
  
  	sgtl5000: codec@a {
-@@ -498,6 +531,7 @@
+@@ -245,8 +280,8 @@
+ 	pinctrl-names = "default", "gpio";
+ 	pinctrl-0 = <&pinctrl_i2c2>;
+ 	pinctrl-1 = <&pinctrl_i2c2_gpio>;
+-	scl-gpios = <&gpio4 12 GPIO_ACTIVE_HIGH>;
+-	sda-gpios = <&gpio4 13 GPIO_ACTIVE_HIGH>;
++	scl-gpios = <&gpio4 12 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	sda-gpios = <&gpio4 13 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 	status = "okay";
+ };
+ 
+@@ -305,6 +340,11 @@
+ 		fsl,pins = <
+ 			MX6QDL_PAD_KEY_ROW2__FLEXCAN1_RX	0x1b088
+ 			MX6QDL_PAD_KEY_COL2__FLEXCAN1_TX	0x1b088
++		>;
++	};
++
++	pinctrl_flexcan1_en: flexcan1en {
++		fsl,pins = <
+ 			MX6QDL_PAD_DISP0_DAT0__GPIO4_IO21	0x1b088 /* EN_CAN_1 */
+ 		>;
+ 	};
+@@ -313,10 +353,15 @@
+ 		fsl,pins = <
+ 			MX6QDL_PAD_KEY_COL4__FLEXCAN2_TX	0x1b088
+ 			MX6QDL_PAD_KEY_ROW4__FLEXCAN2_RX	0x1b088
++		>;
++	};
++	pinctrl_flexcan2_en: flexcan2en {
++		fsl,pins = <
+ 			MX6QDL_PAD_EIM_BCLK__GPIO6_IO31		0x1b088 /* EN_CAN_2 */
+ 		>;
+ 	};
+ 
++
+ 	pinctrl_hog: hoggrp {
+ 		fsl,pins = <
+ 			/* Onboard */
+@@ -498,6 +543,7 @@
  };
  
  &pcie {

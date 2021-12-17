@@ -1,0 +1,34 @@
+From 9c43b0fed94f72fbe1da8c15b50f4050cbcfb0d4 Mon Sep 17 00:00:00 2001
+From: Kris Bahnsen <kris@embeddedarm.com>
+Date: Thu, 16 Dec 2021 13:34:08 -0800
+Subject: [PATCH 03/10] wlcore: Enable PM operations on card during probe
+
+Needed since there was some change in the PM system that would
+cause an error if PM runtime was not specifically enabled before
+the call.
+---
+ drivers/net/wireless/ti/wlcore/sdio.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/net/wireless/ti/wlcore/sdio.c b/drivers/net/wireless/ti/wlcore/sdio.c
+index 9fd8cf2d270c..7100f300252a 100644
+--- a/drivers/net/wireless/ti/wlcore/sdio.c
++++ b/drivers/net/wireless/ti/wlcore/sdio.c
+@@ -291,6 +291,14 @@ static int wl1271_probe(struct sdio_func *func,
+ 	if (ret)
+ 		goto out;
+ 
++	/* Enable PM runtime for the card. This is needed for the call to
++	 * pm_runtime_get_sync in power control. Without enabling PM runtime,
++	 * those calls will fail. There is a proposed patch that might address
++	 * this, see https://lore.kernel.org/linux-arm-kernel/641a41bc-68ea-c0e9-9430-faf3803e12d5@ti.com/T/ However this has not been upstreamed at all and this is a tested
++	 * workaround that doesn't change core PM functionality.
++	 */
++	pm_runtime_enable(&func->card->dev);
++
+ 	/* if sdio can keep power while host is suspended, enable wow */
+ 	mmcflags = sdio_get_host_pm_caps(func);
+ 	dev_dbg(glue->dev, "sdio PM caps = 0x%x\n", mmcflags);
+-- 
+2.11.0
+
