@@ -1,3 +1,3 @@
 meta-ts
 =======
-Visit http://wiki.embeddedarm.com/wiki/Yocto for additional information
+Visit http://wiki.embeddedTS.com/wiki/Yocto for additional information
