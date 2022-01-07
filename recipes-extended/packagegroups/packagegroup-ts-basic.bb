@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013 Technologic Sustems
+# Copyright (C) 2013-2022 Technologic Systems, Inc. dba embeddedTS
 #
 
 DESCRIPTION = "Create Basic Image Tasks"

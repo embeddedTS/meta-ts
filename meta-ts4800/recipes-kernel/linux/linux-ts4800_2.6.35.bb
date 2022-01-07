@@ -25,7 +25,7 @@ PV = "2.6.35"
 S = "${WORKDIR}/git"
 
 SRCREV = "${AUTOREV}"
-SRC_URI = "git://github.com/embeddedarm/linux-2.6.35-ts4800.git;protocol=git;tag=b0449eee2fd74e389c29c4479c221c545efe8ecc \
+SRC_URI = "git://github.com/embeddedTS/linux-2.6.35-ts4800.git;protocol=git;tag=b0449eee2fd74e389c29c4479c221c545efe8ecc \
 	   file://defconfig \
            "
 
