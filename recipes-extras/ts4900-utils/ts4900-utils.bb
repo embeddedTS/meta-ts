@@ -1,7 +1,7 @@
 SUMMARY = "TS-4900 Utils"
-DESCRIPTION = "Technologic Systems utilities, gpioctl, tshwctl, nvramctl"
-AUTHOR = "Mark Featherston <mark@embeddedarm.com>"
-HOMEPAGE = "http://www.embeddedarm.com/"
+DESCRIPTION = "embeddedTS utilities, gpioctl, tshwctl, nvramctl"
+AUTHOR = "Mark Featherston <mark@embeddedTS.com>"
+HOMEPAGE = "http://www.embeddedTS.com/"
 SECTION = "base"
 
 LICENSE = "MIT"
@@ -10,7 +10,7 @@ DEPENDS = ""
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/"
 
-SRC_URI = "git://github.com/embeddedarm/ts4900-utils.git;branch=master"
+SRC_URI = "git://github.com/embeddedTS/ts4900-utils.git;branch=master"
 
 SRCREV = "71e6baa157b62c28ebe69b3d09ddd075614a7a82"
 PV = "0.99.0+git${SRCPV}"
