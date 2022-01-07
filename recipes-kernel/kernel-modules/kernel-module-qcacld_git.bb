@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${S}/CORE/HDD/src/wlan_hdd_main.c;beginline=1;endline
 
 inherit module
 SRCREV = "9951258aad2ca8e0a951d71a90219b02f665f488"
-SRC_URI = "git://github.com/embeddedarm/qcacld-2.0.git;branch=${SRCBRANCH}"
+SRC_URI = "git://github.com/embeddedTS/qcacld-2.0.git;branch=${SRCBRANCH}"
 SRCBRANCH = "caf-wlan/CNSS.LEA.NRT_3.1"
 
 S = "${WORKDIR}/git"

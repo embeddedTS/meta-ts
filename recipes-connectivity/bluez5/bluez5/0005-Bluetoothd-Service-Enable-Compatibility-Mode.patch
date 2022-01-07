@@ -7,7 +7,7 @@ Subject: [PATCH 5/5] Bluetoothd-Service-Enable-Compatibility-Mode
  src/bluetooth.service.in | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Kris Bahnsen <kris@embeddedarm.com>
+Kris Bahnsen <kris@embeddedTS.com>
 Modified ExecStart string to match 5.61 BlueZ
 
 diff --git a/src/bluetooth.service.in b/src/bluetooth.service.in

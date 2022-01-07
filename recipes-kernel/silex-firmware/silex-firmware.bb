@@ -1,6 +1,6 @@
 SUMMARY = "Silex SDMAC+ Firmware"
-AUTHOR = "Mark Featherston <mark@embeddedarm.com>"
-HOMEPAGE = "http://www.embeddedarm.com/"
+AUTHOR = "Mark Featherston <mark@embeddedTS.com>"
+HOMEPAGE = "http://www.embeddedTS.com/"
 SECTION = "base"
 LICENSE = "Proprietary"
 

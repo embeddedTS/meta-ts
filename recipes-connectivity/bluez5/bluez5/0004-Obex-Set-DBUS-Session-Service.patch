@@ -8,7 +8,7 @@ Subject: [PATCH 4/5] Obex-Set-DBUS-Session-Service
  1 file changed, 1 insertion(+)
 
 
-Kris Bahnsen <kris@embeddedarm.com>
+Kris Bahnsen <kris@embeddedTS.com>
 Modified ExecStart string to match 5.61 BlueZ
 
 diff --git a/obexd/src/obex.service.in b/obexd/src/obex.service.in

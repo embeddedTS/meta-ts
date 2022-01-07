@@ -1,13 +1,13 @@
 SUMMARY = "TS-4900 Utils"
-DESCRIPTION = "Technologic Systems utilities, gpioctl, tshwctl, nvramctl"
-AUTHOR = "Mark Featherston <mark@embeddedarm.com>"
-HOMEPAGE = "http://www.embeddedarm.com/"
+DESCRIPTION = "embeddedTS utilities, gpioctl, tshwctl, nvramctl"
+AUTHOR = "Mark Featherston <mark@embeddedTS.com>"
+HOMEPAGE = "http://www.embeddedTS.com/"
 SECTION = "base"
 
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=08eb81eeaccfa92905e7444a5a37bcf2"
 
-SRC_URI = "git://github.com/embeddedarm/ts4900-utils.git;branch=master \
+SRC_URI = "git://github.com/embeddedTS/ts4900-utils.git;branch=master \
            file://tssilomon.service"
 SRCREV = "f6a0a778a81c31b94bd5118a04863dc4925a8e2a"
 PV = "1.0.0+git${SRCPV}"
