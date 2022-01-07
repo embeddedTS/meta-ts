@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 LOCALVERSION ?= "+yocto"
 
 SRCBRANCH ??= "imx_3.10.53_1.1.0_ga"
-SRC_URI = "git://github.com/embeddedarm/linux-3.10.17-imx6.git;branch=${SRCBRANCH} \
+SRC_URI = "git://github.com/embeddedTS/linux-3.10.17-imx6.git;branch=${SRCBRANCH} \
            file://defconfig"
 
 DEPENDS += "lzop-native bc-native"
