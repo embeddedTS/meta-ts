@@ -15,7 +15,7 @@ SRCBRANCH ??= "master"
 
 # Allow override of TECHNOLOGIC_GITHUB_MIRROR to make use of
 # local repository easier
-TECHNOLOGIC_GITHUB_MIRROR ?= "git://github.com/embeddedarm/linux-3.10.17-imx6.git"
+TECHNOLOGIC_GITHUB_MIRROR ?= "git://github.com/embeddedTS/linux-3.10.17-imx6.git"
 
 # SRC_URI for ts kernel
 SRC_URI = "${TECHNOLOGIC_GITHUB_MIRROR};branch=${SRCBRANCH} \
