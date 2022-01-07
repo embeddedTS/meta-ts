@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = "file://Licenses/gpl-2.0.txt;md5=b234ee4d69f5fce4486a80fdaf4a
 
 SRCBRANCH = "v2014.10-mender"
 SRCREV = "4b41d33365c532853dac9f165027caf01b66f953"
-SRC_URI = "git://github.com/embeddedarm/u-boot.git;branch=${SRCBRANCH}"
+SRC_URI = "git://github.com/embeddedTS/u-boot.git;branch=${SRCBRANCH}"
 
 PV = "v2014.10+git${SRCPV}"
 
