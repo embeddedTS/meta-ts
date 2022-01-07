@@ -1,10 +1,10 @@
 PR = "r4"
 
 SRC_URI += " \
-ftp://ftp.embeddedarm.com/ts-arm-sbc/ts-7500-linux/binaries/ts-images/xnand-mbr-latest.dd.bz2;name=mbr-flash;downloadfilename=mbr-flash.dd.bz2 \
-ftp://ftp.embeddedarm.com/ts-arm-sbc/ts-7500-linux/binaries/ts-images/initrd-busybox-rootfs-latest.dd.bz2;name=initrd-flash;downloadfilename=initrd-flash.dd.bz2 \
-ftp://ftp.embeddedarm.com/ts-arm-sbc/ts-7500-linux/binaries/ts-images/sd-mbr-feb042013.dd.bz2;name=mbr-sd;downloadfilename=mbr-sd.dd.bz2 \
-ftp://ftp.embeddedarm.com/ts-arm-sbc/ts-7500-linux/binaries/ts-images/initrd-busybox-rootfs-latest.dd.bz2;name=initrd-sd;downloadfilename=initrd-sd.dd.bz2 \
+ftp://ftp.embeddedTS.com/ts-arm-sbc/ts-7500-linux/binaries/ts-images/xnand-mbr-latest.dd.bz2;name=mbr-flash;downloadfilename=mbr-flash.dd.bz2 \
+ftp://ftp.embeddedTS.com/ts-arm-sbc/ts-7500-linux/binaries/ts-images/initrd-busybox-rootfs-latest.dd.bz2;name=initrd-flash;downloadfilename=initrd-flash.dd.bz2 \
+ftp://ftp.embeddedTS.com/ts-arm-sbc/ts-7500-linux/binaries/ts-images/sd-mbr-feb042013.dd.bz2;name=mbr-sd;downloadfilename=mbr-sd.dd.bz2 \
+ftp://ftp.embeddedTS.com/ts-arm-sbc/ts-7500-linux/binaries/ts-images/initrd-busybox-rootfs-latest.dd.bz2;name=initrd-sd;downloadfilename=initrd-sd.dd.bz2 \
 	\
 	"
 SRC_URI[mbr-flash.md5sum] = "c54b1ac6342ba3ed8f8fab120023b76f"

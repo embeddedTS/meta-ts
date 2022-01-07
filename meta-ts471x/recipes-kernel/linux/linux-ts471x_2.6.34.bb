@@ -25,7 +25,7 @@ PV = "2.6.34"
 S = "${WORKDIR}/git"
 
 SRCREV = "${AUTOREV}"
-SRC_URI = "git://github.com/embeddedarm/linux-2.6.34-ts471x.git;protocol=git;tag=1b46ac4bd3e471989de3e6e18c822e97d7d84766 \
+SRC_URI = "git://github.com/embeddedTS/linux-2.6.34-ts471x.git;protocol=git;tag=1b46ac4bd3e471989de3e6e18c822e97d7d84766 \
            "
 
 kernel_do_configure_prepend() {
