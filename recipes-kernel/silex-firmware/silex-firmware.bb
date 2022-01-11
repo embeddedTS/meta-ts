@@ -4,7 +4,7 @@ HOMEPAGE = "http://www.embeddedTS.com/"
 SECTION = "base"
 LICENSE = "Proprietary"
 
-LIC_FILES_CHKSUM = "file://${WORKDIR}/files/LICENSE.silex;md5=2b967ecddccf559405a6eb0d9035c397"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/files/LICENSE.silex;md5=acdc8291681e0f64524b4d7a062482f8"
 
 SRC_URI = "file://files/"
 FILESEXTRAPATHS_prepend := "${THISDIR}/:"
