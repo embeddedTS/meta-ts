@@ -8,7 +8,7 @@ DEFAULT_PREFERENCE = "1"
 SRCBRANCH = "ts-imx_4.9.11_1.0.0_ga"
 KERNEL_SRC ?= "git://github.com/embeddedTS/linux-tsimx.git"
 SRC_URI = "${KERNEL_SRC};branch=${SRCBRANCH}"
-SRCREV = "c86133f8798fecd20bd0db8c033b7712811cefe7"
+SRCREV = "c19e1841d4cfa7d1b93cde3d2e6671af721b877d"
 KERNEL_DEFCONFIG = "${S}/arch/arm/configs/ts4900_defconfig"
 
 do_preconfigure_prepend() {

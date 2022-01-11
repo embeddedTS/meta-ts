@@ -5,11 +5,11 @@ HOMEPAGE = "http://www.embeddedTS.com/"
 SECTION = "base"
 
 LICENSE = "BSD-2-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=08eb81eeaccfa92905e7444a5a37bcf2"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=baff28f1c94c68bc8782a20fdaf9b236"
 
 SRC_URI = "git://github.com/embeddedTS/ts4900-utils.git;branch=master \
            file://tssilomon.service"
-SRCREV = "f6a0a778a81c31b94bd5118a04863dc4925a8e2a"
+SRCREV = "0d77ae39d82fe8846fb8e4c06c31bbc69ecba77b"
 PV = "1.0.0+git${SRCPV}"
 S = "${WORKDIR}/git"
 
