@@ -5,17 +5,17 @@ POKY_BBLAYERS_CONF_VERSION = "2"
 BBFILES ?= ""
 
 BBLAYERS ?= " \
-  ##OEROOT##/poky/meta \
-  ##OEROOT##/poky/meta-poky \
-  ##OEROOT##/poky/meta-yocto-bsp \
-  ##OEROOT##/meta-freescale \
-  ##OEROOT##/meta-freescale-3rdparty \
-  ##OEROOT##/meta-freescale-distro \
-  ##OEROOT##/meta-openembedded/meta-oe \
-  ##OEROOT##/meta-openembedded/meta-python \
-  ##OEROOT##/meta-openembedded/meta-multimedia \
-  ##OEROOT##/meta-openembedded/meta-gnome \
-  ##OEROOT##/meta-openembedded/meta-networking \
-  ##OEROOT##/meta-ts \
-  ##OEROOT##/meta-qt5 \
+  ##OEROOT##/meta \
+  ##OEROOT##/meta-poky \
+  ##OEROOT##/meta-yocto-bsp \
+  ##OEROOT##/../meta-freescale \
+  ##OEROOT##/../meta-freescale-3rdparty \
+  ##OEROOT##/../meta-freescale-distro \
+  ##OEROOT##/../meta-openembedded/meta-oe \
+  ##OEROOT##/../meta-openembedded/meta-python \
+  ##OEROOT##/../meta-openembedded/meta-multimedia \
+  ##OEROOT##/../meta-openembedded/meta-gnome \
+  ##OEROOT##/../meta-openembedded/meta-networking \
+  ##OEROOT##/../meta-ts \
+  ##OEROOT##/../meta-qt5 \
   "
