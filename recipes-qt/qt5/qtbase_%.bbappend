@@ -1,1 +1,0 @@
-PACKAGECONFIG_append = " sql-sqlite sql-mysql icu accessibility"
