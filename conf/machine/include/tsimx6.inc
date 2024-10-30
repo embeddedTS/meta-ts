@@ -25,3 +25,8 @@ IMAGE_FSTYPES = "tar.xz"
 # sources are written for that and it is currently the most widely available across
 # multiple distributions.
 PREFERRED_VERSION_libgpiod = "1.%"
+
+# Prefer an older 2.9 release of wpa_supplicant. There is an issue currently with
+# the ath10k_sdio driver/support for our Silex part that breaks WPA-PSK in
+# wpa_supplicatn 2.10+
+PREFERRED_VERSION_wpa-supplicant = "2.9"
