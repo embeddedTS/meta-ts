@@ -14,6 +14,8 @@ IMAGE_INSTALL:append:tsimx6 = " ts4900-utils"
 # recipe only for that machine
 IMAGE_INSTALL:append:ts4900 = " ts4900-fpga"
 
+IMAGE_INSTALL:append:ts7990 = " wilc3000-external-module"
+
 # Allow root as a login account with no password
 # Use openssh since dropbear default has some quirks with first boot
 EXTRA_IMAGE_FEATURES += "empty-root-password ssh-server-openssh"
