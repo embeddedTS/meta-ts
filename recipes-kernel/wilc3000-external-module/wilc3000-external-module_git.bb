@@ -30,3 +30,5 @@ do_install() {
 	export CONFIG_WILC_SPI=m
 	make M="${S}" INSTALL_MOD_PATH="${D}" modules_install
 }
+
+RDEPENDS:${PN} = "wilc3000-firmware"
