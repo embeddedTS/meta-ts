@@ -3,7 +3,7 @@
 
 include recipes-extended/images/core-image-full-cmdline.bb
 
-COMPATIBLE_MACHINE = "tsimx6"
+COMPATIBLE_MACHINE = "(tsimx6|tsimx6ul)"
 
 # Machine specific requirement dependencies
 
@@ -19,10 +19,12 @@ IMAGE_INSTALL:append:ts4900 = " ts4900-fpga"
 # wish to not include them.
 IMAGE_INSTALL:append:tsimx6 = " ts4900-utils"
 IMAGE_INSTALL:append:ts7553v2 = " ts7553v2-utils"
+IMAGE_INSTALL:append:ts7180 = " ts7180-utils"
 
 # Platforms with the WILC3000 module that need the external driver and firmware
 IMAGE_INSTALL:append:ts7990 = " wilc3000-external-module"
 IMAGE_INSTALL:append:ts7553v2 = " wilc3000-external-module"
+IMAGE_INSTALL:append:ts7180 = " wilc3000-external-module"
 
 # Allow root as a login account with no password
 # Use openssh since dropbear default has some quirks with first boot
