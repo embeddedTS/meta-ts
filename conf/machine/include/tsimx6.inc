@@ -15,7 +15,7 @@ SERIAL_CONSOLES = "115200;ttymxc0"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image kernel-modules kernel-devicetree linux-firmware"
 
-MACHINE_FEATURES += "screen usbgadget usbhost vfat ext2 alsa pci wifi bluetooth touchscreen"
+MACHINE_FEATURES += "screen usbgadget usbhost vfat ext2 alsa pci wifi bluetooth touchscreen rtc serial"
 
 PACKAGECONFIG:append:pn-mesa = " gallium etnaviv"
 
