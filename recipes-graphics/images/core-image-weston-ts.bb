@@ -3,23 +3,28 @@
 
 include recipes-graphics/images/core-image-weston.bb
 
-COMPATIBLE_MACHINE = "tsimx6"
+COMPATIBLE_MACHINE = "(tsimx6|tsimx6ul)"
 
-# In theory this could be a MACHINE_EXTRA_RDEPENDS of a machine, however,
-# the utilities packages are not vital to the operation of a platform and
-# an end user may wish to not include them.
-#
-# This is not specified in the machine conf files with MACHINE_EXTRA_RRECOMMENDS
-# (since it is used to indicate that it would be nice to have this recipe, but
-# its not necessary), because that variable is not honored for all image classes.
-# Which is silly.
-IMAGE_INSTALL:append:tsimx6 = " ts4900-utils"
+# Machine specific requirement dependencies
 
 # The TS-4900 uses an FPGA that must be reloaded on every boot, include that
 # recipe only for that machine
 IMAGE_INSTALL:append:ts4900 = " ts4900-fpga"
 
+
+# Utilities support for platforms
+
+# In theory this could be an RDEPENDS of a machine, however, the utilities
+# packages are not vital to the operation of a platform and an end user may
+# wish to not include them.
+IMAGE_INSTALL:append:tsimx6 = " ts4900-utils"
+IMAGE_INSTALL:append:ts7100 = " ts7100-utils"
+
+
+# Platforms with the WILC3000 module that need the external driver and firmware
+IMAGE_INSTALL:append:ts7100 = " wilc3000-external-module"
 IMAGE_INSTALL:append:ts7990 = " wilc3000-external-module"
+
 
 # Allow root as a login account with no password
 # Use openssh since dropbear default has some quirks with first boot
