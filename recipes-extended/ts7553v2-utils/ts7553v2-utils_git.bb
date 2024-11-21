@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d8bb882cd636fc6b4a8a29d9a13363df"
 
 # Note that libgpiod < 2.x is needed
 DEPENDS = " libgpiod cairo"
-RDEPENDS:${PN} = "tssilomon-start"
+RDEPENDS:${PN} += "${@bb.utils.contains('MACHINE_FEATURES', 'tssilo', 'tssilomon-start', '', d)}"
 
 BRANCH = "master"
 TAG = "2.0.1"

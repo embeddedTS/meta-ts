@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=baff28f1c94c68bc8782a20fdaf9b236"
 
 # Note that libgpiod < 2.x is needed
 DEPENDS = " libgpiod"
+RDEPENDS:${PN} += "${@bb.utils.contains('MACHINE_FEATURES', 'tssilo', 'tssilomon-start', '', d)}"
 
 BRANCH = "master"
 TAG = "2.0.2"
