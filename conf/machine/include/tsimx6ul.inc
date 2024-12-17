@@ -13,7 +13,7 @@ SERIAL_CONSOLES = "115200;ttymxc0"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image kernel-modules kernel-devicetree linux-firmware"
 
-MACHINE_FEATURES += "usbgadget usbhost vfat ext2 wifi bluetooth rtc serial"
+MACHINE_FEATURES += "bluetooth ext2 rtc serial usbgadget usbhost vfat wifi"
 
 IMAGE_FSTYPES = "tar.xz"
 
