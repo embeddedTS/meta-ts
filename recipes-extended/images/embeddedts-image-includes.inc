@@ -22,6 +22,7 @@ IMAGE_INSTALL:append:ts7180 = " wilc3000-external-module"
 IMAGE_INSTALL:append:ts7250v3 = " wilc3000-external-module"
 IMAGE_INSTALL:append:ts7990 = " wilc3000-external-module"
 IMAGE_INSTALL:append:ts7553v2 = " wilc3000-external-module"
+IMAGE_INSTALL:append:ts7800v2 = " wilc3000-external-module"
 
 
 # Allow root as a login account with no password

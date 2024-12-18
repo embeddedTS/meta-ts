@@ -1,0 +1,9 @@
+[Unit]
+Description=Monitor CPU temperatures and inject idle cycles if nearing max temperature
+
+[Service]
+Type=simple
+ExecStart=@BINDIR@/tssilomon
+
+[Install]
+WantedBy=multi-user.target

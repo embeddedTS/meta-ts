@@ -4,4 +4,4 @@
 include recipes-extended/images/core-image-full-cmdline.bb
 include recipes-extended/images/embeddedts-image-includes.inc
 
-COMPATIBLE_MACHINE = "(tsimx6|tsimx6ul)"
+COMPATIBLE_MACHINE = "(tsimx6|tsimx6ul|tsa38x)"
