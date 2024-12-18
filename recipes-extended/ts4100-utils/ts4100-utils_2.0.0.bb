@@ -9,11 +9,9 @@ DEPENDS = " libgpiod zpu-elf-gcc-native"
 RDEPENDS:${PN} += "${@bb.utils.contains('MACHINE_FEATURES', 'tssilo', 'tssilomon-start', '', d)} bash"
 
 BRANCH = "master"
-TAG = "2.0.0"
 
-PV = "${TAG}"
 SRC_URI = "git://github.com/embeddedTS/ts4100-utils.git;protocol=https;branch=${BRANCH}"
-SRCREV = "v${TAG}"
+SRCREV = "v${PV}"
 
 S = "${WORKDIR}/git"
 
