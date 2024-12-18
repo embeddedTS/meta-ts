@@ -9,11 +9,9 @@ DEPENDS = " libgpiod"
 RDEPENDS:${PN} += "${@bb.utils.contains('MACHINE_FEATURES', 'tssilo', 'tssilomon-start', '', d)}"
 
 BRANCH = "master"
-TAG = "2.0.2"
 
-PV = "${TAG}"
 SRC_URI = "git://github.com/embeddedTS/ts4900-utils.git;protocol=https;branch=${BRANCH}"
-SRCREV = "v${TAG}"
+SRCREV = "v${PV}"
 
 S = "${WORKDIR}/git"
 
