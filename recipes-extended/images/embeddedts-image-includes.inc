@@ -2,13 +2,6 @@
 # properly include any additional or necessary applications for hardware
 # support of individual machines.
 
-# Machine specific requirement dependencies
-
-# The TS-4900 uses an FPGA that must be reloaded on every boot, include that
-# recipe only for that machine
-IMAGE_INSTALL:append:ts4900 = " ts4900-fpga"
-
-
 # Utilities support for platforms
 
 # In theory this could be an RDEPENDS of a machine, however, the utilities
