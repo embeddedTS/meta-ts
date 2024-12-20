@@ -6,7 +6,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=0deb455fa485cd99c8fd0344ea4b23b4"
 
 # Note that libgpiod < 2.x is needed
 DEPENDS = " libgpiod zpu-elf-gcc-native"
-RDEPENDS:${PN} += "${@bb.utils.contains('MACHINE_FEATURES', 'tssilo', 'tssilomon-start', '', d)} bash"
+# If this machine has tssilo support enabled, then we need the startup script.
+# Since the tssilomon script uses libgpiod-tools, that also is needed at runtime
+RDEPENDS:${PN} += "${@bb.utils.contains('MACHINE_FEATURES', 'tssilo', 'tssilomon-start libgpiod-tools', '', d)}"
 
 BRANCH = "master"
 
