@@ -11,7 +11,7 @@ KERNEL_IMAGETYPE = "zImage"
 
 SERIAL_CONSOLES = "115200;ttymxc0"
 
-MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image kernel-modules kernel-devicetree linux-firmware"
+MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image kernel-modules kernel-devicetree"
 
 MACHINE_FEATURES += "bluetooth ext2 rtc serial usbgadget usbhost vfat wifi"
 

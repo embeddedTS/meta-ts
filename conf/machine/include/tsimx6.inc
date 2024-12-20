@@ -13,7 +13,7 @@ KERNEL_EXTRA_ARGS += "LOADADDR=0x10008000"
 
 SERIAL_CONSOLES = "115200;ttymxc0"
 
-MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image kernel-modules kernel-devicetree linux-firmware"
+MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image kernel-modules kernel-devicetree"
 
 MACHINE_FEATURES += "alsa bluetooth ext2 pci rtc screen serial touchscreen usbgadget usbhost vfat wifi"
 
