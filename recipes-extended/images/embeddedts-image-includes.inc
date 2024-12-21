@@ -33,6 +33,7 @@ IMAGE_INSTALL:append:ts7970 = " linux-firmware-ath10k linux-firmware-wl12xx"
 IMAGE_INSTALL:append:ts7990 = " wilc3000-external-module"
 IMAGE_INSTALL:append:ts7553v2 = " wilc3000-external-module"
 IMAGE_INSTALL:append:ts7800v2 = " wilc3000-external-module"
+IMAGE_INSTALL:append:ts7840 = " linux-firmware-ath10k"
 
 
 # Allow root as a login account with no password
