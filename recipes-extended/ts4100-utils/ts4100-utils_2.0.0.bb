@@ -17,7 +17,7 @@ SRCREV = "v${PV}"
 
 S = "${WORKDIR}/git"
 
-# The zpu-elf-gcc-native recipe installs the toolchain to ${bindir}/zpu-elf-gcc/
+# The zpu-elf-gcc-native recipe installs the toolchain to ${base_bindir}/zpu-elf-gcc/
 # and the actual executable is within bin/ of that folder.
 # Note that, there does not appear to be a way for a recipe to add arbitrary
 # directories to $PATH that future recipes would use. So, any recipe using the
@@ -36,12 +36,12 @@ do_compile:append() {
 
 do_install:append() {
 	if [ -x "$(command -v zpu-elf-gcc)" ]; then
-		install -d "${D}${bindir}/zpu"
-		install -m 0644 "${S}/src/zpu/zpu_muxbus.bin" "${D}${bindir}/zpu"
-		install -m 0644 "${S}/src/zpu/zpu_demo.bin" "${D}${bindir}/zpu"
+		install -d "${D}${base_bindir}/zpu"
+		install -m 0644 "${S}/src/zpu/zpu_muxbus.bin" "${D}${base_bindir}/zpu"
+		install -m 0644 "${S}/src/zpu/zpu_demo.bin" "${D}${base_bindir}/zpu"
 	fi
 }
 
 inherit autotools pkgconfig
 
-FILES:${PN} += "${bindir}/zpu"
+FILES:${PN} += "${base_bindir}/zpu"

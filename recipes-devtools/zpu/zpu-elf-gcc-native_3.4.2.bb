@@ -32,14 +32,14 @@ do_unpack() {
 
 do_install() {
 	if [ "${BUILD_ARCH}" = "x86_64" ] ; then
-		install -d "${D}/${bindir}/zpu-elf-gcc/"
-		cp -r "${S}"/* "${D}/${bindir}/zpu-elf-gcc/"
+		install -d "${D}/${base_bindir}/zpu-elf-gcc/"
+		cp -r "${S}"/* "${D}/${base_bindir}/zpu-elf-gcc/"
 	else
 		bbwarn "Native ZPU toolchain only supports x86_64 build environments. Detected build architecture: ${BUILD_ARCH}. ZPU toolchain will not be available for other recipes!"
 	fi
 }
 
-FILES:${PN} += "/${bindir}/zpu-elf-gcc"
+FILES:${PN} += "/${base_bindir}/zpu-elf-gcc"
 
 # Since the toolchain includes ZPU ELF objects, we need to prevent the build
 # system from attempting to strip/split debug symbols on these objects
