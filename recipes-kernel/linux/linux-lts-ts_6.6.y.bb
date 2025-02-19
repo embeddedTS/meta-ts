@@ -8,7 +8,7 @@ DEFAULT_PREFERENCE = "1"
 PROVIDES += "virtual/kernel"
 
 BRANCH = "linux-6.6.y"
-LINUX_VERSION = "6.6.58"
+LINUX_VERSION = "6.6.78.1"
 
 PV = "${LINUX_VERSION}"
 SRCREV = "v${LINUX_VERSION}-ts"
@@ -19,9 +19,10 @@ SRC_URI = "git://github.com/embeddedTS/linux-lts.git;protocol=https;branch=${BRA
 SUMMARY = "Linux kernel for eTS platforms"
 DESCRIPTION = "Linux Kernel modified for TS board support."
 
-COMPATIBLE_MACHINE = "(tsimx6|tsimx6ul|tsa38x)"
+COMPATIBLE_MACHINE = "(tsimx6|tsimx6ul|tsa38x|tsimx28)"
 
 KCONFIG_MODE = "--alldefconfig"
 KBUILD_DEFCONFIG:tsimx6 ?= "tsimx6_defconfig"
 KBUILD_DEFCONFIG:tsimx6ul ?= "tsimx6ul_defconfig"
 KBUILD_DEFCONFIG:tsa38x ?= "tsa38x_defconfig"
+KBUILD_DEFCONFIG:tsimx28 ?= "tsimx28_defconfig"

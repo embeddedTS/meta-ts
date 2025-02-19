@@ -19,6 +19,7 @@ IMAGE_INSTALL:append:ts7180 = " ts7180-utils"
 IMAGE_INSTALL:append:ts7100 = " ts7100-utils"
 IMAGE_INSTALL:append:ts7250v3 = " ts7100-utils"
 IMAGE_INSTALL:append:ts7553v2 = " ts7553v2-utils"
+IMAGE_INSTALL:append:ts7680 = " ts7680-utils"
 
 
 # Firmware needed by different machines
@@ -32,6 +33,7 @@ IMAGE_INSTALL:append:ts7250v3 = " wilc3000-external-module"
 IMAGE_INSTALL:append:ts7970 = " linux-firmware-ath10k linux-firmware-wl12xx"
 IMAGE_INSTALL:append:ts7990 = " wilc3000-external-module"
 IMAGE_INSTALL:append:ts7553v2 = " wilc3000-external-module"
+IMAGE_INSTALL:append:ts7680 = " linux-firmware-wl12xx"
 IMAGE_INSTALL:append:ts7800v2 = " wilc3000-external-module"
 IMAGE_INSTALL:append:ts7840 = " linux-firmware-ath10k"
 

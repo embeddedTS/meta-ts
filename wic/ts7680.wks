@@ -1,0 +1,8 @@
+# Single empty partition for legacy compatibility
+part --offset 1M --size 8M
+
+# Rootfs
+# It would appear wic doesn't allow specifying filesystem CREATION options, only
+# mount options. Because of that, we need to use ext3 rather than ext4 with the
+# 64bit settings disabled for U-Boot compatibility
+part / --source rootfs --fstype ext3
