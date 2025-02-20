@@ -1,0 +1,5 @@
+# Install U-Boot blob to first partition.
+part --offset 1M --size 8M --source rawcopy --fstype=none --sourceparams="file=uboot/uboot.sd"
+
+# Rootfs
+part / --source rootfs --fstype ext4
