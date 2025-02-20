@@ -18,7 +18,7 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image kernel-modules kernel-devicetr
 MACHINE_FEATURES += "bluetooth ext2 rtc serial usbgadget usbhost vfat wifi"
 
 # Individual machine conf files need to specify the WKS_FILE variable for this
-IMAGE_FSTYPES += "wic wic.bmap"
+IMAGE_FSTYPES += "wic.xz wic.bmap"
 
 # Prefer an older 1.x version of libgpiod where possible since the current utilities
 # sources are written for that and it is currently the most widely available across
