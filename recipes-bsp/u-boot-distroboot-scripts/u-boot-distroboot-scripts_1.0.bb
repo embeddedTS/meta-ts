@@ -11,7 +11,6 @@ DEPENDS += "u-boot-mkimage-native"
 SRC_URI = "\
     file://boot-ts7100.source \
     file://boot-ts7250v3.source \
-    file://boot-ts7840.source \
 "
 
 # Note that, if using custom U-Boot scripts on _any_ platform, it should possible
