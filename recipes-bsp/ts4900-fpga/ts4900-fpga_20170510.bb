@@ -1,5 +1,8 @@
 SUMMARY = "TS-4900 FPGA Bitstream"
+DESCRIPTION = "Binary FPGA bitstream for the TS-4900. \
+               Installed to the target and loaded by the platform at boot."
 HOMEPAGE = "http://www.embeddedTS.com/"
+SECTION = "bsp"
 
 COMPATIBLE_MACHINE = "tsimx6"
 
