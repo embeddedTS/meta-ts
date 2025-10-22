@@ -1,15 +1,19 @@
-DESCRIPTION="External module for WILC3000 WiFi/BLE"
-HOMEPAGE="https://github.com/embeddedTS/wilc3000-external-module/"
+SUMMARY = "WILC3000 Linux Driver"
+DESCRIPTION = "External module for WILC3000 WiFi/BLE"
+HOMEPAGE = "https://github.com/embeddedTS/wilc3000-external-module/"
+BUGTRACKER = "https://github.com/embeddedTS/wilc3000-external-module/issues"
+SECTION = "bsp"
 
 LICENSE = "GPL-2.0-or-later"
-LIC_FILES_CHKSUM="file://LICENSE;md5=e6a75371ba4d16749254a51215d13f97"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=e6a75371ba4d16749254a51215d13f97"
 
 BRANCH = "2024.04-with-community-patches"
 
+DEPENDS += "virtual/kernel"
 SRC_URI = "git://github.com/embeddedTS/wilc3000-external-module.git;protocol=https;branch=${BRANCH}"
 SRCREV = "1e056e47144b8896a6a79204d128b529a5bd0b0f"
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/git"
 
 inherit module
 
@@ -20,8 +24,6 @@ inherit module
 # executed against the kernel's Makefile which understands how to build external
 # modules like this.
 B = "${STAGING_KERNEL_BUILDDIR}"
-
-DEPENDS = "virtual/kernel"
 
 EXTRA_OEMAKE:append = " \
     KERNEL_DIR=${STAGING_KERNEL_DIR} \
