@@ -1,5 +1,8 @@
-SUMMARY = "Firmware for WILC3000 WiFi/BLE devices"
+SUMMARY = "WILC3000 Firmware"
+DESCRIPTION = "Firmware for WILC3000 WiFi/BLE devices"
 HOMEPAGE = "https://github.com/linux4wilc/firmware"
+BUGTRACKER = "https://github.com/linux4wilc/firmware/issues"
+SECTION = "bsp"
 
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://LICENSE.wilc_fw;md5=89ed0ff0e98ce1c58747e9a39183cc9f"
@@ -10,7 +13,7 @@ PV = "${TAG}"
 SRC_URI = "git://github.com/linux4wilc/firmware.git;protocol=https;branch=master"
 SRCREV = "${TAG}"
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/git"
 
 do_install() {
     install -d ${D}${nonarch_base_libdir}/firmware/mchp/
