@@ -7,28 +7,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171d
 
 inherit native
 
-SRC_URI = "https://files.embeddedts.com/ts-socket-macrocontrollers/ts-4100-linux/zpu/x86_64-zpu-elf-gcc-${PV}.tar.bz2"
+SRC_URI = "https://files.embeddedts.com/ts-socket-macrocontrollers/ts-4100-linux/zpu/x86_64-zpu-elf-gcc-${PV}.tar.bz2;subdir=${BP}"
 SRC_URI[sha256sum] = "cf85d22d469bbbd89c02f22707e923aa1febc21180ad0467cd24602d9e3e3613"
-
-do_unpack() {
-	if [ "${BUILD_ARCH}" = "x86_64" ] ; then
-		# For _some_ reason, the default do_unpack extracts the tarball
-		# to ${WORKDIR}/ instead of ${S}/ (which would default to
-		# ${WORKDIR}/${PN}-${PV}). So we need to write our own custom
-		# unpack task just to do the thing that should already be done.
-		# Much of the complexty of this comes from the fact that Yocto
-		# _really_ likes to have names match when that doesn't make sense
-		# in the case of this. e.g. their naming also wants to enforce
-		# -native in the .bb name to note that it is for the host. The
-		# naming of the tarball and the first folder of it prepends the
-		# arch rather than appending it. So, if we strip the root folder
-		# of the tarball when we unpack it to ${S}, we should finally be
-		# able to just copy the contents of ${S} to have the structure
-		# we need.
-		tar xhf "${DL_DIR}/$(basename "${SRC_URI}")" --strip-components=1 \
-			-C "${S}"
-	fi
-}
 
 do_install() {
 	if [ "${BUILD_ARCH}" = "x86_64" ] ; then

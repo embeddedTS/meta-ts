@@ -14,13 +14,16 @@ SRC_URI = "\
     file://boot-ts7840.source \
 "
 
+# To stop yocto from warning that $S directory does not exist
+S = "${UNPACKDIR}"
+
 # Note that, if using custom U-Boot scripts on _any_ platform, it should possible
 # to extend this with a .bbappend file to add additional files to be considered
 # so long as they are named "boot-<machine>.source" and the machine is expecting
 # a script name /boot/boot.scr
 do_compile () {
-	if [ -f "${WORKDIR}/boot-${MACHINE}.source" ]; then
-		cp "${WORKDIR}/boot-${MACHINE}.source" "${S}/boot.source"
+	if [ -f "${UNPACKDIR}/boot-${MACHINE}.source" ]; then
+		cp "${UNPACKDIR}/boot-${MACHINE}.source" "${S}/boot.source"
 		uboot-mkimage -A arm -T script -C none -n 'boot' \
 			-d "${S}/boot.source" "${S}/boot.scr"
 	else

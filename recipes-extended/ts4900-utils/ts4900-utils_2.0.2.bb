@@ -16,6 +16,4 @@ BRANCH = "master"
 SRC_URI = "git://github.com/embeddedTS/ts4900-utils.git;protocol=https;branch=${BRANCH}"
 SRCREV = "v${PV}"
 
-S = "${WORKDIR}/git"
-
 inherit autotools pkgconfig

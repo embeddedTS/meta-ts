@@ -14,7 +14,7 @@ SRC_URI:append:ts7990 = " file://99-ts7990-resistive-touchscreen.rules"
 do_install () {
 	install -d "${D}${sysconfdir}/udev/rules.d/"
 
-	for I in ${WORKDIR}/*${MACHINE}*; do
+	for I in ${UNPACKDIR}/*${MACHINE}*; do
 		if [ -f "${I}" ]; then
 			install -m 0644 "${I}" \
 				"${D}${sysconfdir}/udev/rules.d/"

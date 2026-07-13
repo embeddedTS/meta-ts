@@ -11,6 +11,4 @@ BRANCH = "main"
 SRC_URI = "git://github.com/embeddedTS/idleinject.git;protocol=https;branch=${BRANCH}"
 SRCREV = "v${PV}"
 
-S = "${WORKDIR}/git"
-
 inherit meson pkgconfig
