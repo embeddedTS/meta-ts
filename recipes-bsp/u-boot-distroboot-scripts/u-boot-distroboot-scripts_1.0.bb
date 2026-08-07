@@ -1,7 +1,7 @@
 SUMMARY = "U-Boot scripts for distroboot compatible embeddedTS platforms"
 HOMEPAGE = "http://www.embeddedTS.com/"
 
-COMPATIBLE_MACHINE = "(ts7100|ts7250v3|ts7840)"
+COMPATIBLE_MACHINE = "(ts7100|ts7180|ts7250v3|ts7840)"
 
 LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/BSD-2-Clause;md5=cb641bc04cda31daea161b1bc15da69f"
@@ -10,6 +10,7 @@ DEPENDS += "u-boot-mkimage-native"
 
 SRC_URI = "\
     file://boot-ts7100.source \
+    file://boot-ts7180.source \
     file://boot-ts7250v3.source \
     file://boot-ts7840.source \
 "
