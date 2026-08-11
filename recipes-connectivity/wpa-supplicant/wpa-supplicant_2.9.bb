@@ -42,8 +42,8 @@ CVE_PRODUCT = "wpa_supplicant"
 S = "${UNPACKDIR}/wpa_supplicant-${PV}"
 
 PACKAGES:prepend = "wpa-supplicant-passphrase wpa-supplicant-cli "
-FILES:wpa-supplicant-passphrase = "${base_bindir}/wpa_passphrase"
-FILES:wpa-supplicant-cli = "${base_sbindir}/wpa_cli"
+FILES:wpa-supplicant-passphrase = "${bindir}/wpa_passphrase"
+FILES:wpa-supplicant-cli = "${sbindir}/wpa_cli"
 FILES:${PN} += "${datadir}/dbus-1/system-services/* ${systemd_system_unitdir}/*"
 CONFFILES:${PN} += "${sysconfdir}/wpa_supplicant.conf"
 
@@ -65,7 +65,7 @@ do_configure () {
 }
 
 export EXTRA_CFLAGS = "${CFLAGS}"
-export BINDIR = "${base_sbindir}"
+export BINDIR = "${sbindir}"
 
 do_compile () {
 	unset CFLAGS CPPFLAGS CXXFLAGS
@@ -74,12 +74,12 @@ do_compile () {
 }
 
 do_install () {
-	install -d ${D}${base_sbindir}
-	install -m 755 wpa_supplicant/wpa_supplicant ${D}${base_sbindir}
-	install -m 755 wpa_supplicant/wpa_cli        ${D}${base_sbindir}
+	install -d ${D}${sbindir}
+	install -m 755 wpa_supplicant/wpa_supplicant ${D}${sbindir}
+	install -m 755 wpa_supplicant/wpa_cli        ${D}${sbindir}
 
-	install -d ${D}${base_bindir}
-	install -m 755 wpa_supplicant/wpa_passphrase ${D}${base_bindir}
+	install -d ${D}${bindir}
+	install -m 755 wpa_supplicant/wpa_passphrase ${D}${bindir}
 
 	install -d ${D}${docdir}/wpa_supplicant
 	install -m 644 wpa_supplicant/README ${UNPACKDIR}/wpa_supplicant.conf ${D}${docdir}/wpa_supplicant

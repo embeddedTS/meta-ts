@@ -16,11 +16,11 @@ do_install() {
     if "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}"; then
         install -d ${D}${systemd_unitdir}/system
         install -m 0644 ${UNPACKDIR}/idleinject.service ${D}${systemd_unitdir}/system
-        sed -i -e 's#@BINDIR@#${base_bindir}#g' ${D}${systemd_unitdir}/system/idleinject.service
+        sed -i -e 's#@BINDIR@#${bindir}#g' ${D}${systemd_unitdir}/system/idleinject.service
     elif ${@bb.utils.contains('DISTRO_FEATURES', 'sysvinit', 'true', 'false', d)}; then
         install -d ${D}${sysconfdir}/init.d
         install -m 0744 ${UNPACKDIR}/idleinject ${D}${sysconfdir}/init.d/idleinject
-        sed -i -e 's#@BINDIR@#${base_bindir}#g' ${D}${sysconfdir}/init.d/idleinject
+        sed -i -e 's#@BINDIR@#${bindir}#g' ${D}${sysconfdir}/init.d/idleinject
     else
 	bbfatal "Using neither systemd nor sysvinit for init system! idleinject startup script will not be installed but is required for safe operation! Consider using systemd or sysvinit for the init system."
     fi

@@ -16,11 +16,11 @@ do_install() {
     if "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}"; then
         install -d ${D}${systemd_unitdir}/system
         install -m 0644 ${UNPACKDIR}/tssilomon.service ${D}${systemd_unitdir}/system
-        sed -i -e 's#@BINDIR@#${base_bindir}#g' ${D}${systemd_unitdir}/system/tssilomon.service
+        sed -i -e 's#@BINDIR@#${bindir}#g' ${D}${systemd_unitdir}/system/tssilomon.service
     elif ${@bb.utils.contains('DISTRO_FEATURES', 'sysvinit', 'true', 'false', d)}; then
         install -d ${D}${sysconfdir}/init.d
         install -m 0744 ${UNPACKDIR}/tssilomon ${D}${sysconfdir}/init.d/tssilomon
-        sed -i -e 's#@BINDIR@#${base_bindir}#g' ${D}${sysconfdir}/init.d/tssilomon
+        sed -i -e 's#@BINDIR@#${bindir}#g' ${D}${sysconfdir}/init.d/tssilomon
     else
 	bbwarn "Using neither systemd nor sysvinit for init system! tssilomon startup script will not be installed!"
     fi
