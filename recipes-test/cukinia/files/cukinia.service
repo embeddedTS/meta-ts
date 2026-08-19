@@ -1,0 +1,11 @@
+[Unit]
+Description=Run cukinia system tests
+# systemd does not consider it an error if these services don't exist.
+After=tssilomon.service idleinject.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/cukinia -f junitxml -o /results.xml /etc/cukinia.conf
+
+[Install]
+WantedBy=multi-user.target
