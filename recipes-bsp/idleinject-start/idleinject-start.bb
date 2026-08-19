@@ -30,7 +30,7 @@ FILES:${PN} += "/"
 
 # These should do nothing if sysvinit is not defined as a DISTRO_FEATURE
 INITSCRIPT_NAME = "idleinject"
-INITSCRIPT_PARAMS = "defaults 99"
+INITSCRIPT_PARAMS = "defaults 95"
 
 # This should do nothing if systemd is not defined as a DISTRO_FEATURE
 SYSTEMD_SERVICE:${PN} = "idleinject.service"
