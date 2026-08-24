@@ -9,12 +9,12 @@ umask 077
 
 start() {
 	printf 'Starting %s: ' "$DAEMON"
-	start-stop-daemon -S -q -m -p /var/run/tssilomon.pid -b --exec sh @BINDIR@/tssilomon
+	start-stop-daemon -S -q -m -p /var/run/tssilomon.pid -b --exec @BINDIR@/tssilomon
 	echo "OK"
 }
 stop() {
 	printf 'Stopping %s: ' "$DAEMON"
-	start-stop-daemon -K -q -m -p /var/run/tssilomon.pid -b --exec sh @BINDIR@/tssilomon
+	start-stop-daemon -K -q -m -p /var/run/tssilomon.pid -b --exec @BINDIR@/tssilomon
 	echo "OK"
 }
 restart() {
