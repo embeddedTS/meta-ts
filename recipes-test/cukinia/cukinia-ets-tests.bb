@@ -8,6 +8,7 @@ SRC_URI = " \
     file://common.conf \
     file://cukinia.conf \
     file://tssilomon.conf \
+    file://wifi.conf \
     file://cukinia \
     file://cukinia.service \
 "
@@ -25,6 +26,7 @@ do_install:append() {
 
     install -m 0644 ${UNPACKDIR}/common.conf ${D}${sysconfdir}/cukinia.d/
     install -m 0644 ${UNPACKDIR}/tssilomon.conf ${D}${sysconfdir}/cukinia.d/
+    install -m 0644 ${UNPACKDIR}/wifi.conf ${D}${sysconfdir}/cukinia.d/
     install -m 0644 ${UNPACKDIR}/cukinia.conf ${D}${sysconfdir}
     if "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}"; then
         install -d ${D}${systemd_unitdir}/system
