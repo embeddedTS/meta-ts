@@ -7,8 +7,8 @@ DEFAULT_PREFERENCE = "1"
 
 PROVIDES += "virtual/kernel"
 
-BRANCH = "linux-6.6.y"
-LINUX_VERSION = "6.6.58"
+BRANCH = "linux-6.18.y"
+LINUX_VERSION = "6.18.45"
 
 PV = "${LINUX_VERSION}"
 SRCREV = "v${LINUX_VERSION}-ts"

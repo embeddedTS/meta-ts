@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e6a75371ba4d16749254a51215d13f97"
 BRANCH = "2024.04-with-community-patches"
 
 SRC_URI = "git://github.com/embeddedTS/wilc3000-external-module.git;protocol=https;branch=${BRANCH}"
-SRCREV = "1e056e47144b8896a6a79204d128b529a5bd0b0f"
+SRCREV = "b80bdec8d542b0ce69752e034600e7cc45f41eb9"
 
 inherit module
 
