@@ -3,7 +3,7 @@ Description=Monitor CPU temperatures and inject idle cycles if nearing max tempe
 
 [Service]
 Type=simple
-ExecStart=@BINDIR@/tssilomon
+ExecStart=@BINDIR@/idleinject
 
 [Install]
 WantedBy=multi-user.target

@@ -9,15 +9,18 @@ SRC_URI = "file://tssilomon.service \
 
 inherit systemd update-rc.d
 
+# To stop yocto from warning that $S directory does not exist
+S = "${UNPACKDIR}"
+
 do_install() {
     if "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}"; then
         install -d ${D}${systemd_unitdir}/system
-        install -m 0644 ${WORKDIR}/tssilomon.service ${D}${systemd_unitdir}/system
-        sed -i -e 's#@BINDIR@#${base_bindir}#g' ${D}${systemd_unitdir}/system/tssilomon.service
+        install -m 0644 ${UNPACKDIR}/tssilomon.service ${D}${systemd_unitdir}/system
+        sed -i -e 's#@BINDIR@#${bindir}#g' ${D}${systemd_unitdir}/system/tssilomon.service
     elif ${@bb.utils.contains('DISTRO_FEATURES', 'sysvinit', 'true', 'false', d)}; then
         install -d ${D}${sysconfdir}/init.d
-        install -m 0744 ${WORKDIR}/tssilomon ${D}${sysconfdir}/init.d/tssilomon
-        sed -i -e 's#@BINDIR@#${base_bindir}#g' ${D}${sysconfdir}/init.d/tssilomon
+        install -m 0744 ${UNPACKDIR}/tssilomon ${D}${sysconfdir}/init.d/tssilomon
+        sed -i -e 's#@BINDIR@#${bindir}#g' ${D}${sysconfdir}/init.d/tssilomon
     else
 	bbwarn "Using neither systemd nor sysvinit for init system! tssilomon startup script will not be installed!"
     fi
@@ -27,7 +30,7 @@ FILES:${PN} += "/"
 
 # These should do nothing if sysvinit is not defined as a DISTRO_FEATURE
 INITSCRIPT_NAME = "tssilomon"
-INITSCRIPT_PARAMS = "defaults 99"
+INITSCRIPT_PARAMS = "defaults 95"
 
 # This should do nothing if systemd is not defined as a DISTRO_FEATURE
 #SYSTEMD_PACKAGES = "${PN}"

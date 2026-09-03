@@ -39,17 +39,17 @@ SRC_URI[sha256sum] = "fcbdee7b4a64bea8177973299c8c824419c413ec2e3a95db63dd6a5dc3
 
 CVE_PRODUCT = "wpa_supplicant"
 
-S = "${WORKDIR}/wpa_supplicant-${PV}"
+S = "${UNPACKDIR}/wpa_supplicant-${PV}"
 
 PACKAGES:prepend = "wpa-supplicant-passphrase wpa-supplicant-cli "
-FILES:wpa-supplicant-passphrase = "${base_bindir}/wpa_passphrase"
-FILES:wpa-supplicant-cli = "${base_sbindir}/wpa_cli"
+FILES:wpa-supplicant-passphrase = "${bindir}/wpa_passphrase"
+FILES:wpa-supplicant-cli = "${sbindir}/wpa_cli"
 FILES:${PN} += "${datadir}/dbus-1/system-services/* ${systemd_system_unitdir}/*"
 CONFFILES:${PN} += "${sysconfdir}/wpa_supplicant.conf"
 
 do_configure () {
 	${MAKE} -C wpa_supplicant clean
-	install -m 0755 ${WORKDIR}/defconfig wpa_supplicant/.config
+	install -m 0755 ${UNPACKDIR}/defconfig wpa_supplicant/.config
 
 	if echo "${PACKAGECONFIG}" | grep -qw "openssl"; then
         	ssl=openssl
@@ -65,7 +65,7 @@ do_configure () {
 }
 
 export EXTRA_CFLAGS = "${CFLAGS}"
-export BINDIR = "${base_sbindir}"
+export BINDIR = "${sbindir}"
 
 do_compile () {
 	unset CFLAGS CPPFLAGS CXXFLAGS
@@ -74,23 +74,23 @@ do_compile () {
 }
 
 do_install () {
-	install -d ${D}${base_sbindir}
-	install -m 755 wpa_supplicant/wpa_supplicant ${D}${base_sbindir}
-	install -m 755 wpa_supplicant/wpa_cli        ${D}${base_sbindir}
+	install -d ${D}${sbindir}
+	install -m 755 wpa_supplicant/wpa_supplicant ${D}${sbindir}
+	install -m 755 wpa_supplicant/wpa_cli        ${D}${sbindir}
 
-	install -d ${D}${base_bindir}
-	install -m 755 wpa_supplicant/wpa_passphrase ${D}${base_bindir}
+	install -d ${D}${bindir}
+	install -m 755 wpa_supplicant/wpa_passphrase ${D}${bindir}
 
 	install -d ${D}${docdir}/wpa_supplicant
-	install -m 644 wpa_supplicant/README ${WORKDIR}/wpa_supplicant.conf ${D}${docdir}/wpa_supplicant
+	install -m 644 wpa_supplicant/README ${UNPACKDIR}/wpa_supplicant.conf ${D}${docdir}/wpa_supplicant
 
 	install -d ${D}${sysconfdir}
-	install -m 600 ${WORKDIR}/wpa_supplicant.conf-sane ${D}${sysconfdir}/wpa_supplicant.conf
+	install -m 600 ${UNPACKDIR}/wpa_supplicant.conf-sane ${D}${sysconfdir}/wpa_supplicant.conf
 
 	install -d ${D}${sysconfdir}/network/if-pre-up.d/
 	install -d ${D}${sysconfdir}/network/if-post-down.d/
 	install -d ${D}${sysconfdir}/network/if-down.d/
-	install -m 755 ${WORKDIR}/wpa-supplicant.sh ${D}${sysconfdir}/network/if-pre-up.d/wpa-supplicant
+	install -m 755 ${UNPACKDIR}/wpa-supplicant.sh ${D}${sysconfdir}/network/if-pre-up.d/wpa-supplicant
 	cd ${D}${sysconfdir}/network/ && \
 	ln -sf ../if-pre-up.d/wpa-supplicant if-post-down.d/wpa-supplicant
 
@@ -105,7 +105,7 @@ do_install () {
 	fi
 
 	install -d ${D}/etc/default/volatiles
-	install -m 0644 ${WORKDIR}/99_wpa_supplicant ${D}/etc/default/volatiles
+	install -m 0644 ${UNPACKDIR}/99_wpa_supplicant ${D}/etc/default/volatiles
 }
 
 pkg_postinst:${PN} () {

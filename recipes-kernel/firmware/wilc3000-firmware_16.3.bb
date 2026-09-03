@@ -10,8 +10,6 @@ PV = "${TAG}"
 SRC_URI = "git://github.com/linux4wilc/firmware.git;protocol=https;branch=master"
 SRCREV = "${TAG}"
 
-S = "${WORKDIR}/git"
-
 do_install() {
     install -d ${D}${nonarch_base_libdir}/firmware/mchp/
     install -m 0644 ${S}/wilc3000_wifi_firmware.bin ${D}${nonarch_base_libdir}/firmware/mchp/
