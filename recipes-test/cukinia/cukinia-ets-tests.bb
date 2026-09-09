@@ -9,6 +9,9 @@ SRC_URI = " \
     file://cukinia.conf \
     file://tssilomon.conf \
     file://wifi.conf \
+    file://bluetooth.conf \
+    file://bt_wilc3000.conf \
+    file://bt_silex.conf \
     file://cukinia \
     file://cukinia.service \
 "
@@ -27,6 +30,9 @@ do_install:append() {
     install -m 0644 ${UNPACKDIR}/common.conf ${D}${sysconfdir}/cukinia.d/
     install -m 0644 ${UNPACKDIR}/tssilomon.conf ${D}${sysconfdir}/cukinia.d/
     install -m 0644 ${UNPACKDIR}/wifi.conf ${D}${sysconfdir}/cukinia.d/
+    install -m 0644 ${UNPACKDIR}/bluetooth.conf ${D}${sysconfdir}/cukinia.d/
+    install -m 0644 ${UNPACKDIR}/bt_wilc3000.conf ${D}${sysconfdir}/cukinia.d/
+    install -m 0644 ${UNPACKDIR}/bt_silex.conf ${D}${sysconfdir}/cukinia.d/
     install -m 0644 ${UNPACKDIR}/cukinia.conf ${D}${sysconfdir}
     if "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}"; then
         install -d ${D}${systemd_unitdir}/system
